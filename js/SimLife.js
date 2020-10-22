@@ -1,5 +1,5 @@
 ﻿window.onload = function () {
-    alert("Новые изменения: \n 1. Магазин 24/7 перенесен во вкладку 'Магазины'. \n 2. Появилась вкладка продукты. \n 3. Разделы 'Подработка', 'Работы' и 'Отдых' перенесены во вкладку \n 'Вид деятельности'. \n 4. Появилась вкладка 'Вид деятельности'. \n 5. Изменены кнопки 'Сохранить' и 'Загрузить'. ");
+    alert("Новые изменения: \n 1. Измененна прибыль с водителя на стройке. \n 2. На стройке дабовлена работа строителя. \n 3. Добавлена статистика. \n 4. Добавленны два вида отдыха. \n 5. С помощью подработок и работы можно увеличить 'Навык \n работы'. \n 6. Для работ теперь требуется 'Навык работы'. \n 7. Добавлен магазин транспорта и недвижимости. \n 8. Добавлено 2 вида недвижимости. \n 9. Добавлено 2 вида транспорта. \n 10. Бизнесов пока что еще нет (Работаю над системой \n пассивного заработка). ");
     alert("Здравствуй, ты запустил/ла мой первый проект, в котором я решил сделать кнопочную игру в жанре 'симулятора жизни/бомжа'. Рекомендуется играть в Microsoft Edge для корректного воспроизведения музыки. А сейчас введи пожалуйста свой игровой ник.");
     var name = prompt("Введи свое игровое имя");
     //var test = document.createElement("p");
@@ -36,15 +36,24 @@
         setTimeout(liveCounter, 1000);
     }
     liveCounter();
-    */
+    */ // система бизнеса
 }
 
 var doc = document; // кеширование document
+
+var nrnum = 0;
+var onnum = 0;
+var nnum = 100;
+var mest = "Не имеется";
+var car = "Не имеется";
 
 // интерфейсы 
 
 // интерфейс вида деятельности
 function deyt0() {
+    var stat = doc.getElementById("stat");
+    doc.body.removeChild(stat);
+
     var marcet = doc.getElementById("marcet");
     doc.body.removeChild(marcet);
 
@@ -155,6 +164,9 @@ function deyt0() {
 
 // интерфейс настроек
 function sesting0() {
+    var stat = doc.getElementById("stat");
+    doc.body.removeChild(stat);
+
     var EWM = doc.getElementById("td1");
 
     var marcet = doc.getElementById("marcet");
@@ -228,6 +240,9 @@ function sesting0() {
 
 // интерфейс магазина
 function marcet0() {
+    var stat = doc.getElementById("stat");
+    doc.body.removeChild(stat);
+
     var deyt = doc.getElementById("deyt");
     doc.body.removeChild(deyt);
 
@@ -277,6 +292,64 @@ function marcet0() {
     marcetEAT.onclick = marcet01;
     // продукты
 
+    // Недвижимость
+    var home = doc.createElement("tr");
+    home.id = "home";
+    EWM.parentNode.insertBefore(home, EWM);
+
+    var tdhome = doc.createElement("td");
+    tdhome.id = "tdhome";
+    home.appendChild(tdhome);
+
+    var tdhome1 = doc.getElementById("tdhome");
+
+    var tdHOME = doc.createElement("img");
+    tdHOME.src = "Фото/HOME.png";
+    tdhome1.appendChild(tdHOME);
+
+    var HOME1 = doc.createElement("td");
+    HOME1.innerHTML = "Недвижимость";
+    home.appendChild(HOME1);
+
+    var BUTHOME = doc.createElement("input");
+    BUTHOME.type = "button"
+    BUTHOME.value = "Посмотреть";
+    BUTHOME.id = "marcetHOME";
+    home.appendChild(BUTHOME);
+
+    var marcetEHOME = doc.getElementById("marcetHOME");
+    marcetHOME.onclick = marhome01;
+    // Недвижимость
+
+    // Транспорт
+    var car = doc.createElement("tr");
+    car.id = "car";
+    EWM.parentNode.insertBefore(car, EWM);
+
+    var tdcar = doc.createElement("td");
+    tdcar.id = "tdcar";
+    car.appendChild(tdcar);
+
+    var tdcar1 = doc.getElementById("tdcar");
+
+    var tdCAR = doc.createElement("img");
+    tdCAR.src = "Фото/CAR.png";
+    tdcar1.appendChild(tdCAR);
+
+    var CAR1 = doc.createElement("td");
+    CAR1.innerHTML = "Транспорт";
+    car.appendChild(CAR1);
+
+    var BUTCAR = doc.createElement("input");
+    BUTCAR.type = "button"
+    BUTCAR.value = "Посмотреть";
+    BUTCAR.id = "marcetCAR";
+    car.appendChild(BUTCAR);
+
+    var marcetCAR = doc.getElementById("marcetCAR");
+    marcetCAR.onclick = marcar01;
+    // Транспорт
+
     // кнопка назад
     var back = doc.createElement("input");
     back.type = "button";
@@ -292,6 +365,12 @@ function marcet0() {
 
 // интерфейс магазина продуктов
 function marcet01() {
+    var home = doc.getElementById("home");
+    home.parentNode.removeChild(home);
+
+    var car = doc.getElementById("car");
+    car.parentNode.removeChild(car);
+
     var EAT_id = doc.getElementById("E").innerHTML;
     EAT = Number.parseInt(EAT_id);
 
@@ -1013,7 +1092,7 @@ function str0() {
     tddriv1.appendChild(drivtr);
 
     var WET1 = doc.createElement("td");
-    WET1.innerHTML = "ВОДИТЕЛЬ + 150 $";
+    WET1.innerHTML = "ВОДИТЕЛЬ + 250 $";
     DRIV.appendChild(WET1);
 
     var BUTDRIV1 = doc.createElement("input");
@@ -1034,6 +1113,44 @@ function str0() {
     var DRIV1 = doc.getElementById("BUTDRIV");
     DRIV1.onclick = drivedtr0;
     // водитель стройки
+
+    // строитель
+    var STRO = doc.createElement("tr");
+    STRO.id = "STRO";
+    EWM.parentNode.insertBefore(STRO, EWM);
+
+    var tdSTRO = doc.createElement("td");
+    tdSTRO.id = "tdSTRO";
+    STRO.appendChild(tdSTRO);
+
+    var tdstro1 = doc.getElementById("tdSTRO");
+
+    var strotr = doc.createElement("img");
+    strotr.src = "Фото/STRO.png";
+    tdstro1.appendChild(strotr);
+
+    var STRO1 = doc.createElement("td");
+    STRO1.innerHTML = "СТРОИТЕЛЬ + 300 $";
+    STRO.appendChild(STRO1);
+
+    var BUTSTRO1 = doc.createElement("input");
+    BUTSTRO1.type = "button";
+    BUTSTRO1.value = "Инфо";
+    BUTSTRO1.id = "BUTSTROINFO";
+    STRO.appendChild(BUTSTRO1);
+
+    var BUTSTRO11 = doc.getElementById("BUTSTROINFO");
+    BUTSTRO11.onclick = stroinfo0;
+
+    var BUTDSTRO = doc.createElement("input");
+    BUTDSTRO.type = "button";
+    BUTDSTRO.value = "Работать";
+    BUTDSTRO.id = "BUTSTRO";
+    STRO.appendChild(BUTDSTRO);
+
+    var STRO1 = doc.getElementById("BUTSTRO");
+    STRO1.onclick = strodtr0;
+    // строитель
 
     var back = doc.createElement("input");
     back.type = "button";
@@ -1061,7 +1178,7 @@ function rest0() {
     back.parentNode.removeChild(back);
 
     var EWM = doc.getElementById("td1");
-
+    //
     var park = doc.createElement("tr");
     park.id = "park";
     EWM.parentNode.insertBefore(park, EWM);
@@ -1077,7 +1194,7 @@ function rest0() {
     tdpark1.appendChild(tdPACK);
 
     var PACK1 = doc.createElement("td");
-    PACK1.innerHTML = "Парк - 10 $";
+    PACK1.innerHTML = "ПАРК - 10 $";
     park.appendChild(PACK1);
 
     var BUTPACK = doc.createElement("input");
@@ -1091,6 +1208,72 @@ function rest0() {
     var PACK12 = doc.createElement("td");
     PACK12.innerHTML = "+ 10 Концентрации";
     park.appendChild(PACK12);
+    //
+
+    //
+    var kino = doc.createElement("tr");
+    kino.id = "kino";
+
+    EWM.parentNode.insertBefore(kino, EWM);
+
+    var tdkino = doc.createElement("td");
+    tdkino.id = "tdkino";
+    kino.appendChild(tdkino);
+
+    var tdkino1 = doc.getElementById("tdkino");
+
+    var tdKINO = doc.createElement("img");
+    tdKINO.src = "Фото/KINO.png";
+    tdkino1.appendChild(tdKINO);
+
+    var KINO1 = doc.createElement("td");
+    KINO1.innerHTML = "КИНОТЕАТР - 20 $";
+    kino.appendChild(KINO1);
+
+    var BUTKINO = doc.createElement("input");
+    BUTKINO.type = "button"
+    BUTKINO.value = "Сходить в кино";
+    BUTKINO.id = "KINO";
+    kino.appendChild(BUTKINO);
+    var KINO = doc.getElementById("KINO");
+    KINO.onclick = KINO0;
+
+    var KINO12 = doc.createElement("td");
+    KINO12.innerHTML = "+ 20 Концентрации";
+    kino.appendChild(KINO12);
+    //
+
+    //
+    var game = doc.createElement("tr");
+    game.id = "game";
+    EWM.parentNode.insertBefore(game, EWM);
+
+    var tdgame = doc.createElement("td");
+    tdgame.id = "tdgame";
+    game.appendChild(tdgame);
+
+    var tdgame1 = doc.getElementById("tdgame");
+
+    var tdGAME = doc.createElement("img");
+    tdGAME.src = "Фото/GAME.png";
+    tdgame1.appendChild(tdGAME);
+
+    var GAME1 = doc.createElement("td");
+    GAME1.innerHTML = "ИГРОВОЙ КЛУБ - 40 $";
+    game.appendChild(GAME1);
+
+    var BUTGAME = doc.createElement("input");
+    BUTGAME.type = "button"
+    BUTGAME.value = "Поиграть";
+    BUTGAME.id = "GAME";
+    game.appendChild(BUTGAME);
+    var GAME = doc.getElementById("GAME");
+    GAME.onclick = GAME0;
+
+    var GAME12 = doc.createElement("td");
+    GAME12.innerHTML = "+ 40 Концентрации";
+    game.appendChild(GAME12);
+    //
 
     // кнопка назад
     var back = doc.createElement("input");
@@ -1105,14 +1288,320 @@ function rest0() {
 }
 // интерфейс отдыха
 
+// интерфейс статистики
+function stat0() {
+    var stat = doc.getElementById("stat");
+    doc.body.removeChild(stat);
+
+    var EWM = doc.getElementById("td1");
+
+    var marcet = doc.getElementById("marcet");
+    doc.body.removeChild(marcet);
+
+    var deyt = doc.getElementById("deyt");
+    doc.body.removeChild(deyt);
+
+    var sesting = doc.getElementById("sesting");
+    doc.body.removeChild(sesting);
+
+    //
+    var trstat = doc.createElement("tr");
+    trstat.id = "trstat";
+    EWM.parentNode.insertBefore(trstat, EWM);
+
+    var trstatid = doc.getElementById("trstat");
+
+    var tdkinophoto = doc.createElement("img");
+    tdkinophoto.src = "Фото/WORK.png";
+    trstatid.appendChild(tdkinophoto);
+
+    var tdstat = doc.createElement("td");
+    tdstat.innerHTML = "Навык работы:";
+    trstatid.appendChild(tdstat);
+
+    var tdstat = doc.createElement("td");
+    tdstat.id = "tdstat";
+    trstatid.appendChild(tdstat);
+
+    var tdstatid = doc.getElementById("tdstat");
+
+    var nr = doc.createElement("i");
+    nr.innerHTML = nrnum + " ";
+    nr.id = "nr";
+    tdstatid.appendChild(nr);
+
+    var on = doc.createElement("i");
+    on.innerHTML = onnum;
+    on.id = "on";
+    tdstatid.appendChild(on);
+
+    var ns = doc.createElement("i");
+    ns.innerHTML = "/";
+    ns.id = "ns";
+    tdstatid.appendChild(ns);
+
+    var n = doc.createElement("i");
+    n.innerHTML = nnum;
+    n.id = "n";
+    tdstatid.appendChild(n);
+    //
+
+    //
+    var trstatranspor = doc.createElement("tr");
+    trstatranspor.id = "trstatranspor";
+    EWM.parentNode.insertBefore(trstatranspor, EWM);
+
+    var trstatidranspor = doc.getElementById("trstatranspor");
+
+    var tdransporphoto = doc.createElement("img");
+    tdransporphoto.src = "Фото/CAR.png";
+    trstatidranspor.appendChild(tdransporphoto);
+
+    var tdstatranspor = doc.createElement("td");
+    tdstatranspor.innerHTML = "Транспорт:";
+    trstatidranspor.appendChild(tdstatranspor);
+
+    var tdstatransport = doc.createElement("td");
+    tdstatransport.innerHTML = car;
+    trstatidranspor.appendChild(tdstatransport);
+    //
+
+    //
+    var trstatmest = doc.createElement("tr");
+    trstatmest.id = "trstatmest";
+    EWM.parentNode.insertBefore(trstatmest, EWM);
+
+    var trstatidmest = doc.getElementById("trstatmest");
+
+
+    var tdmestphoto = doc.createElement("img");
+    tdmestphoto.src = "Фото/HOME.png";
+    trstatidmest.appendChild(tdmestphoto);
+
+    var tdstatmest = doc.createElement("td");
+    tdstatmest.innerHTML = "Место жительства:";
+    trstatidmest.appendChild(tdstatmest);
+
+    var tdstatmest = doc.createElement("td");
+    tdstatmest.innerHTML = mest;
+    trstatidmest.appendChild(tdstatmest);
+    //
+
+    //
+    var trstatbiz = doc.createElement("tr");
+    trstatbiz.id = "trstatbiz";
+    EWM.parentNode.insertBefore(trstatbiz, EWM);
+
+    var trstatidbiz = doc.getElementById("trstatbiz");
+
+
+    var tdbizphoto = doc.createElement("img");
+    tdbizphoto.src = "Фото/BIZ.png";
+    trstatidbiz.appendChild(tdbizphoto);
+
+    var tdstatbiz = doc.createElement("td");
+    tdstatbiz.innerHTML = "Бизнес:";
+    trstatidbiz.appendChild(tdstatbiz);
+
+    var tdstatbiz = doc.createElement("td");
+    tdstatbiz.innerHTML = "Не имеется";
+    trstatidbiz.appendChild(tdstatbiz);
+    //
+
+    var back = doc.createElement("input");
+    back.type = "button"
+    back.value = "Назад";
+    back.id = "back";
+    doc.body.appendChild(back);
+    var backbut = doc.getElementById("back");
+    backbut.onclick = backstat;
+}
+// интерфейс статистики
+
+// интерфейс недвижимости
+function marhome01() {
+    var eat = doc.getElementById("eat");
+    eat.parentNode.removeChild(eat);
+
+    var EWM = doc.getElementById("td1");
+
+    var home = doc.getElementById("home");
+    home.parentNode.removeChild(home);
+
+    var car = doc.getElementById("car");
+    car.parentNode.removeChild(car);
+
+    var back = doc.getElementById("back");
+    back.parentNode.removeChild(back);
+
+    // палатка
+    var pal = doc.createElement("tr");
+    pal.id = "pal";
+    EWM.parentNode.insertBefore(pal, EWM);
+
+    var tdpal = doc.createElement("td");
+    tdpal.id = "tdpal";
+    pal.appendChild(tdpal);
+
+    var tdpal1 = doc.getElementById("tdpal");
+
+    var tdEAT = doc.createElement("img");
+    tdEAT.src = "Фото/PAL.png";
+    tdpal1.appendChild(tdEAT);
+
+    var PAL1 = doc.createElement("td");
+    PAL1.innerHTML = "ПАЛАТКА - 500 $";
+    pal.appendChild(PAL1);
+
+    var BUTPAL = doc.createElement("input");
+    BUTPAL.type = "button"
+    BUTPAL.value = "Купить";
+    BUTPAL.id = "marcetPAL";
+    pal.appendChild(BUTPAL);
+
+    var marcetPAL = doc.getElementById("marcetPAL");
+    marcetPAL.onclick = marpal01;
+    // палатка
+
+    // сарай
+    var sar = doc.createElement("tr");
+    sar.id = "sar";
+    EWM.parentNode.insertBefore(sar, EWM);
+
+    var tdsar = doc.createElement("td");
+    tdsar.id = "tdsar";
+    sar.appendChild(tdsar);
+
+    var tdsar1 = doc.getElementById("tdsar");
+
+    var tdSAR = doc.createElement("img");
+    tdSAR.src = "Фото/SAR.png";
+    tdsar1.appendChild(tdSAR);
+
+    var SAR1 = doc.createElement("td");
+    SAR1.innerHTML = "САРАЙ - 2500 $";
+    sar.appendChild(SAR1);
+
+    var BUTSAR = doc.createElement("input");
+    BUTSAR.type = "button"
+    BUTSAR.value = "Купить";
+    BUTSAR.id = "marcetSAR";
+    sar.appendChild(BUTSAR);
+
+    var marcetSAR = doc.getElementById("marcetSAR");
+    marcetSAR.onclick = marsar01;
+    // сарай
+
+    var back = doc.createElement("input");
+    back.type = "button";
+    back.value = "Назад";
+    back.id = "back";
+    doc.body.appendChild(back);
+
+    var butback = doc.getElementById("back");
+    butback.onclick = backmenuhome;
+}
+// интерфейс недвижимости
+
+// интерфейс транспорта
+function marcar01() {
+    var EWM = doc.getElementById("td1");
+
+    var eat = doc.getElementById("eat");
+    eat.parentNode.removeChild(eat);
+
+    var home = doc.getElementById("home");
+    home.parentNode.removeChild(home);
+
+    var car = doc.getElementById("car");
+    car.parentNode.removeChild(car);
+
+    var back = doc.getElementById("back");
+    back.parentNode.removeChild(back);
+
+    // скейт
+    var skate = doc.createElement("tr");
+    skate.id = "skate";
+    EWM.parentNode.insertBefore(skate, EWM);
+
+    var tdskate = doc.createElement("td");
+    tdskate.id = "tdskate";
+    skate.appendChild(tdskate);
+
+    var tdskate1 = doc.getElementById("tdskate");
+
+    var tdSKATE = doc.createElement("img");
+    tdSKATE.src = "Фото/SKATE.png";
+    tdskate1.appendChild(tdSKATE);
+
+    var SKATE1 = doc.createElement("td");
+    SKATE1.innerHTML = "СКЕЙТ - 150 $";
+    skate.appendChild(SKATE1);
+
+    var BUTSKATE = doc.createElement("input");
+    BUTSKATE.type = "button"
+    BUTSKATE.value = "Купить";
+    BUTSKATE.id = "marcetSKATE";
+    skate.appendChild(BUTSKATE);
+
+    var marcetSKATE = doc.getElementById("marcetSKATE");
+    marcetSKATE.onclick = marskate01;
+    // скейт
+
+    // велосипед
+    var velo = doc.createElement("tr");
+    velo.id = "velo";
+    EWM.parentNode.insertBefore(velo, EWM);
+
+    var tdvelo = doc.createElement("td");
+    tdvelo.id = "tdvelo";
+    velo.appendChild(tdvelo);
+
+    var tdvelo1 = doc.getElementById("tdvelo");
+
+    var tdVELO = doc.createElement("img");
+    tdVELO.src = "Фото/VELO.png";
+    tdvelo1.appendChild(tdVELO);
+
+    var VELO1 = doc.createElement("td");
+    VELO1.innerHTML = "ВЕЛОСИПЕД - 800 $";
+    velo.appendChild(VELO1);
+
+    var BUTVELO = doc.createElement("input");
+    BUTVELO.type = "button"
+    BUTVELO.value = "Купить";
+    BUTVELO.id = "marcetVELO";
+    velo.appendChild(BUTVELO);
+
+    var marcetVELO = doc.getElementById("marcetVELO");
+    marcetVELO.onclick = marvelo01;
+    // велосипед
+
+    var back = doc.createElement("input");
+    back.type = "button";
+    back.value = "Назад";
+    back.id = "back";
+    doc.body.appendChild(back);
+
+    var butback = doc.getElementById("back");
+    butback.onclick = backmenucar;
+}
+// интерфейс транспорта
+
 // интерфейсы 
 
 // функции возврата
 
 // функция назад в меню из магазина
-function backmenumagaz() {
+function backmenumagaz() {    
     var eat = doc.getElementById("eat");
     eat.parentNode.removeChild(eat);
+
+    var home = doc.getElementById("home");
+    home.parentNode.removeChild(home);
+
+    var car = doc.getElementById("car");
+    car.parentNode.removeChild(car);
 
     var back = doc.getElementById("back");
     back.parentNode.removeChild(back);
@@ -1132,6 +1621,14 @@ function backmenumagaz() {
     doc.body.appendChild(deyt);
     var deytbut = doc.getElementById("deyt");
     deytbut.onclick = deyt0;
+
+    var stat = doc.createElement("input");
+    stat.type = "button"
+    stat.value = "Статистика";
+    stat.id = "stat";
+    doc.body.appendChild(stat);
+    var statbut = doc.getElementById("stat");
+    statbut.onclick = stat0;
 
     var sesting = doc.createElement("input");
     sesting.type = "button"
@@ -1184,6 +1681,64 @@ function backmenumagaz0() {
     var marcetEAT = doc.getElementById("marcetEAT");
     marcetEAT.onclick = marcet01;
     // продукты
+
+    // Недвижимость
+    var home = doc.createElement("tr");
+    home.id = "home";
+    EWM.parentNode.insertBefore(home, EWM);
+
+    var tdhome = doc.createElement("td");
+    tdhome.id = "tdhome";
+    home.appendChild(tdhome);
+
+    var tdhome1 = doc.getElementById("tdhome");
+
+    var tdHOME = doc.createElement("img");
+    tdHOME.src = "Фото/HOME.png";
+    tdhome1.appendChild(tdHOME);
+
+    var HOME1 = doc.createElement("td");
+    HOME1.innerHTML = "Недвижимость";
+    home.appendChild(HOME1);
+
+    var BUTHOME = doc.createElement("input");
+    BUTHOME.type = "button"
+    BUTHOME.value = "Посмотреть";
+    BUTHOME.id = "marcetHOME";
+    home.appendChild(BUTHOME);
+
+    var marcetEHOME = doc.getElementById("marcetHOME");
+    marcetHOME.onclick = marhome01;
+    // Недвижимость
+
+    // Транспорт
+    var car = doc.createElement("tr");
+    car.id = "car";
+    EWM.parentNode.insertBefore(car, EWM);
+
+    var tdcar = doc.createElement("td");
+    tdcar.id = "tdcar";
+    car.appendChild(tdcar);
+
+    var tdcar1 = doc.getElementById("tdcar");
+
+    var tdCAR = doc.createElement("img");
+    tdCAR.src = "Фото/CAR.png";
+    tdcar1.appendChild(tdCAR);
+
+    var CAR1 = doc.createElement("td");
+    CAR1.innerHTML = "Транспорт";
+    car.appendChild(CAR1);
+
+    var BUTCAR = doc.createElement("input");
+    BUTCAR.type = "button"
+    BUTCAR.value = "Посмотреть";
+    BUTCAR.id = "marcetCAR";
+    car.appendChild(BUTCAR);
+
+    var marcetCAR = doc.getElementById("marcetCAR");
+    marcetCAR.onclick = marcar01;
+    // Транспорт
 
     var back = doc.createElement("input");
     back.type = "button";
@@ -1603,6 +2158,9 @@ function backmenuworkgl() {
 
 // выход в меню работ из стройки
 function backSRT0() {
+    var STRO = doc.getElementById("STRO");
+    STRO.parentNode.removeChild(STRO);
+
     var driv = doc.getElementById("DRIV");
     driv.parentNode.removeChild(driv);
 
@@ -1677,6 +2235,14 @@ function back0() {
     var deytbut = doc.getElementById("deyt");
     deytbut.onclick = deyt0;
 
+    var stat = doc.createElement("input");
+    stat.type = "button"
+    stat.value = "Статистика";
+    stat.id = "stat";
+    doc.body.appendChild(stat);
+    var statbut = doc.getElementById("stat");
+    statbut.onclick = stat0;
+
     var sesting = doc.createElement("input");
     sesting.type = "button"
     sesting.value = "Настройки";
@@ -1691,6 +2257,12 @@ function back0() {
 function backmenurest0() {
     var back = doc.getElementById("back");
     back.parentNode.removeChild(back);
+
+    var kino = doc.getElementById("kino");
+    kino.parentNode.removeChild(kino);
+
+    var game = doc.getElementById("game");
+    game.parentNode.removeChild(game);
 
     var park = doc.getElementById("park");
     park.parentNode.removeChild(park);
@@ -1824,6 +2396,14 @@ function backdeyt() {
     var deytbut = doc.getElementById("deyt");
     deytbut.onclick = deyt0;
 
+    var stat = doc.createElement("input");
+    stat.type = "button"
+    stat.value = "Статистика";
+    stat.id = "stat";
+    doc.body.appendChild(stat);
+    var statbut = doc.getElementById("stat");
+    statbut.onclick = stat0;
+
     var sesting = doc.createElement("input");
     sesting.type = "button"
     sesting.value = "Настройки";
@@ -1833,6 +2413,279 @@ function backdeyt() {
     sestingbut.onclick = sesting0;
 }
 // выход с вида деятельеости в меню
+
+// выход в меню из статистики
+function backstat() {
+    var back = doc.getElementById("back");
+    doc.body.removeChild(back);
+
+    var trstat = doc.getElementById("trstat");
+    trstat.parentNode.removeChild(trstat);
+
+    var trstatranspor = doc.getElementById("trstatranspor");
+    trstatranspor.parentNode.removeChild(trstatranspor);
+
+    var trstatmest = doc.getElementById("trstatmest");
+    trstatmest.parentNode.removeChild(trstatmest);
+
+    var trstatbiz = doc.getElementById("trstatbiz");
+    trstatbiz.parentNode.removeChild(trstatbiz);
+
+    var magaz = doc.createElement("input");
+    magaz.type = "button"
+    magaz.value = "Магазины";
+    magaz.id = "marcet";
+    doc.body.appendChild(magaz);
+    var magazbut = doc.getElementById("marcet");
+    magazbut.onclick = marcet0;
+
+    var deyt = doc.createElement("input");
+    deyt.type = "button"
+    deyt.value = "Вид деятельности";
+    deyt.id = "deyt";
+    doc.body.appendChild(deyt);
+    var deytbut = doc.getElementById("deyt");
+    deytbut.onclick = deyt0;
+
+    var stat = doc.createElement("input");
+    stat.type = "button"
+    stat.value = "Статистика";
+    stat.id = "stat";
+    doc.body.appendChild(stat);
+    var statbut = doc.getElementById("stat");
+    statbut.onclick = stat0;
+
+    var sesting = doc.createElement("input");
+    sesting.type = "button"
+    sesting.value = "Настройки";
+    sesting.id = "sesting";
+    doc.body.appendChild(sesting);
+    var sestingbut = doc.getElementById("sesting");
+    sestingbut.onclick = sesting0;
+}
+// выход в меню из статистики
+
+// выход в магазины из недвижимости
+function backmenuhome() {
+    var pal = doc.getElementById("pal");
+    pal.parentNode.removeChild(pal);
+
+    var sar = doc.getElementById("sar");
+    sar.parentNode.removeChild(sar);
+
+    var back = doc.getElementById("back");
+    back.parentNode.removeChild(back);
+
+    var EWM = doc.getElementById("td1");
+
+    // продукты
+    var eat = doc.createElement("tr");
+    eat.id = "eat";
+    EWM.parentNode.insertBefore(eat, EWM);
+
+    var tdeat = doc.createElement("td");
+    tdeat.id = "tdeat";
+    eat.appendChild(tdeat);
+
+    var tdeat1 = doc.getElementById("tdeat");
+
+    var tdEAT = doc.createElement("img");
+    tdEAT.src = "Фото/PROD.png";
+    tdeat1.appendChild(tdEAT);
+
+    var EAT1 = doc.createElement("td");
+    EAT1.innerHTML = "Продукты";
+    eat.appendChild(EAT1);
+
+    var BUTEAT = doc.createElement("input");
+    BUTEAT.type = "button"
+    BUTEAT.value = "Посмотреть";
+    BUTEAT.id = "marcetEAT";
+    eat.appendChild(BUTEAT);
+
+    var marcetEAT = doc.getElementById("marcetEAT");
+    marcetEAT.onclick = marcet01;
+    // продукты
+
+    // Недвижимость
+    var home = doc.createElement("tr");
+    home.id = "home";
+    EWM.parentNode.insertBefore(home, EWM);
+
+    var tdhome = doc.createElement("td");
+    tdhome.id = "tdhome";
+    home.appendChild(tdhome);
+
+    var tdhome1 = doc.getElementById("tdhome");
+
+    var tdHOME = doc.createElement("img");
+    tdHOME.src = "Фото/HOME.png";
+    tdhome1.appendChild(tdHOME);
+
+    var HOME1 = doc.createElement("td");
+    HOME1.innerHTML = "Недвижимость";
+    home.appendChild(HOME1);
+
+    var BUTHOME = doc.createElement("input");
+    BUTHOME.type = "button"
+    BUTHOME.value = "Посмотреть";
+    BUTHOME.id = "marcetHOME";
+    home.appendChild(BUTHOME);
+
+    var marcetEHOME = doc.getElementById("marcetHOME");
+    marcetHOME.onclick = marhome01;
+    // Недвижимость
+
+    // Транспорт
+    var car = doc.createElement("tr");
+    car.id = "car";
+    EWM.parentNode.insertBefore(car, EWM);
+
+    var tdcar = doc.createElement("td");
+    tdcar.id = "tdcar";
+    car.appendChild(tdcar);
+
+    var tdcar1 = doc.getElementById("tdcar");
+
+    var tdCAR = doc.createElement("img");
+    tdCAR.src = "Фото/CAR.png";
+    tdcar1.appendChild(tdCAR);
+
+    var CAR1 = doc.createElement("td");
+    CAR1.innerHTML = "Транспорт";
+    car.appendChild(CAR1);
+
+    var BUTCAR = doc.createElement("input");
+    BUTCAR.type = "button"
+    BUTCAR.value = "Посмотреть";
+    BUTCAR.id = "marcetCAR";
+    car.appendChild(BUTCAR);
+
+    var marcetCAR = doc.getElementById("marcetCAR");
+    marcetCAR.onclick = marcar01;
+    // Транспорт
+
+    var back = doc.createElement("input");
+    back.type = "button";
+    back.value = "Назад";
+    back.id = "back";
+    doc.body.appendChild(back);
+
+    var butback = doc.getElementById("back");
+    butback.onclick = backmenumagaz;
+}
+// выход в магазины из недвижимости
+
+// выход в магазины из транспорта
+function backmenucar() {
+    var skate = doc.getElementById("skate");
+    skate.parentNode.removeChild(skate);
+
+    var velo = doc.getElementById("velo");
+    velo.parentNode.removeChild(velo);
+
+    var back = doc.getElementById("back");
+    back.parentNode.removeChild(back);
+
+    var EWM = doc.getElementById("td1");
+
+    // продукты
+    var eat = doc.createElement("tr");
+    eat.id = "eat";
+    EWM.parentNode.insertBefore(eat, EWM);
+
+    var tdeat = doc.createElement("td");
+    tdeat.id = "tdeat";
+    eat.appendChild(tdeat);
+
+    var tdeat1 = doc.getElementById("tdeat");
+
+    var tdEAT = doc.createElement("img");
+    tdEAT.src = "Фото/PROD.png";
+    tdeat1.appendChild(tdEAT);
+
+    var EAT1 = doc.createElement("td");
+    EAT1.innerHTML = "Продукты";
+    eat.appendChild(EAT1);
+
+    var BUTEAT = doc.createElement("input");
+    BUTEAT.type = "button"
+    BUTEAT.value = "Посмотреть";
+    BUTEAT.id = "marcetEAT";
+    eat.appendChild(BUTEAT);
+
+    var marcetEAT = doc.getElementById("marcetEAT");
+    marcetEAT.onclick = marcet01;
+    // продукты
+
+    // Недвижимость
+    var home = doc.createElement("tr");
+    home.id = "home";
+    EWM.parentNode.insertBefore(home, EWM);
+
+    var tdhome = doc.createElement("td");
+    tdhome.id = "tdhome";
+    home.appendChild(tdhome);
+
+    var tdhome1 = doc.getElementById("tdhome");
+
+    var tdHOME = doc.createElement("img");
+    tdHOME.src = "Фото/HOME.png";
+    tdhome1.appendChild(tdHOME);
+
+    var HOME1 = doc.createElement("td");
+    HOME1.innerHTML = "Недвижимость";
+    home.appendChild(HOME1);
+
+    var BUTHOME = doc.createElement("input");
+    BUTHOME.type = "button"
+    BUTHOME.value = "Посмотреть";
+    BUTHOME.id = "marcetHOME";
+    home.appendChild(BUTHOME);
+
+    var marcetEHOME = doc.getElementById("marcetHOME");
+    marcetHOME.onclick = marhome01;
+    // Недвижимость
+
+    // Транспорт
+    var car = doc.createElement("tr");
+    car.id = "car";
+    EWM.parentNode.insertBefore(car, EWM);
+
+    var tdcar = doc.createElement("td");
+    tdcar.id = "tdcar";
+    car.appendChild(tdcar);
+
+    var tdcar1 = doc.getElementById("tdcar");
+
+    var tdCAR = doc.createElement("img");
+    tdCAR.src = "Фото/CAR.png";
+    tdcar1.appendChild(tdCAR);
+
+    var CAR1 = doc.createElement("td");
+    CAR1.innerHTML = "Транспорт";
+    car.appendChild(CAR1);
+
+    var BUTCAR = doc.createElement("input");
+    BUTCAR.type = "button"
+    BUTCAR.value = "Посмотреть";
+    BUTCAR.id = "marcetCAR";
+    car.appendChild(BUTCAR);
+
+    var marcetCAR = doc.getElementById("marcetCAR");
+    marcetCAR.onclick = marcar01;
+    // Транспорт
+
+    var back = doc.createElement("input");
+    back.type = "button";
+    back.value = "Назад";
+    back.id = "back";
+    doc.body.appendChild(back);
+
+    var butback = doc.getElementById("back");
+    butback.onclick = backmenumagaz;
+}
+// выход в магазины из транспорта
 
 // функции возврата
 
@@ -2278,6 +3131,7 @@ function clea0() {
         MON += 40;
         EAT -= 15;
         WET -= 20;
+        onnum += 1;
 
         var MON_id1 = doc.getElementById("M");
         var EAT_id1 = doc.getElementById("E");
@@ -2286,35 +3140,12 @@ function clea0() {
         MON_id1.innerHTML = MON;
         EAT_id1.innerHTML = EAT;
         WET_id1.innerHTML = WET;
+        if (onnum >= nnum) {
+            NAVUP();
+        } else { }
 
         if (LVL1 >= OP) {
-            // обнуляем счетчик нашего уровня
-            LVL1 = 0;
-
-            var leavel = doc.getElementById("L");
-
-            leavel.innerHTML = LVL1;
-            // обнуляем счетчик нашего уровня
-
-            // прибавляем 50 к нужному значению опыта
-            OP += 50;
-
-            var OPT = doc.getElementById("OL");
-
-            OPT.innerHTML = OP;
-            // прибавляем 50 к нужному значению опыта
-
-            // прибавляем к уровню 1
-            var L = doc.getElementById("LVL");
-
-            LVL += 1;
-
-            L.innerHTML = LVL;
-
-            // прибавляем к уровню 1
-            var audio = new Audio();
-            audio.src = "Аудио/levelup.mp3";
-            audio.autoplay = true;
+            LVLUP();
         } else { }
 
     } else if (EAT < 15 && WET > 20) {
@@ -2374,6 +3205,7 @@ function prom0() {
         MON += 50;
         EAT -= 17;
         WET -= 22;
+        onnum += 2;
 
         var MON_id1 = doc.getElementById("M");
         var EAT_id1 = doc.getElementById("E");
@@ -2383,35 +3215,11 @@ function prom0() {
         EAT_id1.innerHTML = EAT;
         WET_id1.innerHTML = WET;
 
+        if (onnum >= nnum) {
+            NAVUP();
+        } else { }
         if (LVL1 >= OP) {
-            // обнуляем счетчик нашего уровня
-            LVL1 = 0;
-
-            var leavel = doc.getElementById("L");
-
-            leavel.innerHTML = LVL1;
-            // обнуляем счетчик нашего уровня
-
-            // прибавляем 50 к нужному значению опыта
-            OP += 50;
-
-            var OPT = doc.getElementById("OL");
-
-            OPT.innerHTML = OP;
-            // прибавляем 50 к нужному значению опыта
-
-            // прибавляем к уровню 1
-            var L = doc.getElementById("LVL");
-
-            LVL += 1;
-
-            L.innerHTML = LVL;
-
-            // прибавляем к уровню 1
-
-            var audio = new Audio();
-            audio.src = "Аудио/levelup.mp3";
-            audio.autoplay = true;
+            LVLUP();
         } else { }
 
         } else if (EAT < 17 && WET > 22) {
@@ -2473,6 +3281,7 @@ function gr0() {
         MON += 100;
         EAT -= 20;
         WET -= 30;
+        onnum += 3;
 
         var MON_id1 = doc.getElementById("M");
         var EAT_id1 = doc.getElementById("E");
@@ -2481,35 +3290,12 @@ function gr0() {
         MON_id1.innerHTML = MON;
         EAT_id1.innerHTML = EAT;
         WET_id1.innerHTML = WET;
+
+        if (onnum >= nnum) {
+            NAVUP();
+        } else { }
         if (LVL1 >= OP) {
-            // обнуляем счетчик нашего уровня
-            LVL1 = 0;
-
-            var leavel = doc.getElementById("L");
-
-            leavel.innerHTML = LVL1;
-            // обнуляем счетчик нашего уровня
-
-            // прибавляем 50 к нужному значению опыта
-            OP += 50;
-
-            var OPT = doc.getElementById("OL");
-
-            OPT.innerHTML = OP;
-            // прибавляем 50 к нужному значению опыта
-
-            // прибавляем к уровню 1
-            var L = doc.getElementById("LVL");
-
-            LVL += 1;
-
-            L.innerHTML = LVL;
-
-            // прибавляем к уровню 1
-
-            var audio = new Audio();
-            audio.src = "Аудио/levelup.mp3";
-            audio.autoplay = true;
+            LVLUP();
         } else { }
 
         } else if (EAT < 20 && WET > 30) {
@@ -2572,6 +3358,7 @@ function of0() {
         MON += 130;
         EAT -= 22;
         WET -= 32;
+        onnum += 4;
 
         var MON_id1 = doc.getElementById("M");
         var EAT_id1 = doc.getElementById("E");
@@ -2580,36 +3367,12 @@ function of0() {
         MON_id1.innerHTML = MON;
         EAT_id1.innerHTML = EAT;
         WET_id1.innerHTML = WET;
-
+        
+        if (onnum >= nnum) {
+            NAVUP();
+        } else { }
         if (LVL1 >= OP) {
-            // обнуляем счетчик нашего уровня
-            LVL1 = 0;
-
-            var leavel = doc.getElementById("L");
-
-            leavel.innerHTML = LVL1;
-            // обнуляем счетчик нашего уровня
-
-            // прибавляем 50 к нужному значению опыта
-            OP += 50;
-
-            var OPT = doc.getElementById("OL");
-
-            OPT.innerHTML = OP;
-            // прибавляем 50 к нужному значению опыта
-
-            // прибавляем к уровню 1
-            var L = doc.getElementById("LVL");
-
-            LVL += 1;
-
-            L.innerHTML = LVL;
-
-            // прибавляем к уровню 1
-
-            var audio = new Audio();
-            audio.src = "Аудио/levelup.mp3";
-            audio.autoplay = true;
+            LVLUP();
         } else { }
 
         } else if (EAT < 22 && WET > 32) {
@@ -2662,7 +3425,7 @@ function drivedtr0() {
     var EAT_id = doc.getElementById("E").innerHTML;
     EAT = Number.parseInt(EAT_id);
     // определяем значение сытости как число
-    if (LVL >= 5) {
+    if (LVL >= 5 && nrnum>= 1) {
         if (EAT >= 40 && WET >= 40 && CONc >= 20) {
             // определяем опыт как число
             var lvl = doc.getElementById("L").innerHTML;
@@ -2674,10 +3437,11 @@ function drivedtr0() {
 
             lvl1.innerHTML = LVL1;
 
-            MON += 150;
+            MON += 250;
             EAT -= 40;
             WET -= 40;
             CONc -= 20;
+            onnum += 6;
 
             var MON_id1 = doc.getElementById("M");
             var EAT_id1 = doc.getElementById("E");
@@ -2689,61 +3453,137 @@ function drivedtr0() {
             WET_id1.innerHTML = WET;
             CONc_id1.innerHTML = CONc;
 
+            if (onnum >= nnum) {
+                NAVUP();
+            } else { }
             if (LVL1 >= OP) {
-                // обнуляем счетчик нашего уровня
-                LVL1 = 0;
-
-                var leavel = doc.getElementById("L");
-
-                leavel.innerHTML = LVL1;
-                // обнуляем счетчик нашего уровня
-
-                // прибавляем 50 к нужному значению опыта
-                OP += 50;
-
-                var OPT = doc.getElementById("OL");
-
-                OPT.innerHTML = OP;
-                // прибавляем 50 к нужному значению опыта
-
-                // прибавляем к уровню 1
-                var L = doc.getElementById("LVL");
-
-                LVL += 1;
-
-                L.innerHTML = LVL;
-
-                // прибавляем к уровню 1
-
-                var audio = new Audio();
-                audio.src = "Аудио/levelup.mp3";
-                audio.autoplay = true;
+                LVLUP();
             } else { }
 
-        } else if (WET > 40 && EAT > 40 && CONc < 40) {
+        } else if (WET > 40 && EAT > 40 && CONc < 20) {
             alert("Вам нужно отдохнуть");
-        } else if (EAT < 40 && WET > 40 && CONc > 40) {
+        } else if (EAT < 40 && WET > 40 && CONc > 20) {
             alert("Вам нужно перекусить");
-        } else if (WET < 40 && EAT > 40 && CONc > 40) {
+        } else if (WET < 40 && EAT > 40 && CONc > 20) {
             alert("Вам нужно попить");
-        } else if (WET < 40 && EAT < 40 && CONc > 40) {
+        } else if (WET < 40 && EAT < 40 && CONc > 20) {
             alert("Вам нужно попить и поесть");
-        } else if (WET < 40 && EAT > 40 && CONc < 40) {
+        } else if (WET < 40 && EAT > 40 && CONc < 20) {
             alert("Вам нужно попить и отдохнуть");
-        } else if (WET > 40 && EAT < 40 && CONc < 40) {
+        } else if (WET > 40 && EAT < 40 && CONc < 20) {
             alert("Вам нужно отдохнуть и поесть");
-        } else if (WET < 40 && EAT < 40 && CONc < 40) {
+        } else if (WET < 40 && EAT < 40 && CONc < 20) {
             alert("Вам нужно попить, поесть и отдохнуть");
         }
-    } else {
+    } else if (LVL < 5 && nrnum >= 1) {
         alert("Для работы требуется 5 уровень");
+    } else if (LVL < 5 && nrnum < 1) {
+        alert("Для работы требуется 5 уровень и 1 навык работ");
+    } else if (LVL >= 5 && nrnum < 1) {
+        alert("Для работы требуется 1 навык работ");
     }
 }
 //работа водителя на стройке
 
+// работа строителя
+function strodtr0() {
+    // определяем какой у нас уровень
+    var lvl = doc.getElementById("LVL").innerHTML;
+    LVL = Number.parseInt(lvl);
+    //  определяем какой у нас уровень
+
+    // определяем наши очки опыта
+    var lvl1 = doc.getElementById("L").innerHTML;
+    LVL1 = Number.parseInt(lvl1);
+    //  определяем наши очки опыта
+
+    // определяем сколько надо для повышения уровня
+    var op = doc.getElementById("OL").innerHTML;
+    OP = Number.parseInt(op);
+    // определяем сколько надо для повышения уровня
+
+    // определяем значение денег как число
+    var MON_id = doc.getElementById("M").innerHTML;
+    MON = Number.parseInt(MON_id);
+    // определяем значение денег как число
+
+    // определяем значение концентрации как число
+    var CONc_id = doc.getElementById("C").innerHTML;
+    CONc = Number.parseInt(CONc_id);
+    // определяем значение концентрации как число
+
+    // определяем значение жажды как число
+    var WET_id = doc.getElementById("W").innerHTML;
+    WET = Number.parseInt(WET_id);
+    // определяем значение жажды как число
+
+    // определяем значение сытости как число
+    var EAT_id = doc.getElementById("E").innerHTML;
+    EAT = Number.parseInt(EAT_id);
+    // определяем значение сытости как число
+    if (LVL >= 6 && nrnum >= 2) {
+        if (EAT >= 45 && WET >= 45 && CONc >= 25) {
+            // определяем опыт как число
+            var lvl = doc.getElementById("L").innerHTML;
+            LVL1 = Number.parseInt(lvl);
+            // определяем опыт как число
+            var lvl1 = doc.getElementById("L");
+
+            LVL1 += 7;
+
+            lvl1.innerHTML = LVL1;
+
+            MON += 300;
+            EAT -= 45;
+            WET -= 45;
+            CONc -= 25;
+            onnum += 7;
+
+            var MON_id1 = doc.getElementById("M");
+            var EAT_id1 = doc.getElementById("E");
+            var WET_id1 = doc.getElementById("W");
+            var CONc_id1 = doc.getElementById("C");
+
+            MON_id1.innerHTML = MON;
+            EAT_id1.innerHTML = EAT;
+            WET_id1.innerHTML = WET;
+            CONc_id1.innerHTML = CONc;
+
+            if (onnum >= nnum) {
+                NAVUP();
+            } else { }
+            if (LVL1 >= OP) {
+                LVLUP();
+            } else { }
+
+        } else if (WET > 45 && EAT > 45 && CONc < 25) {
+            alert("Вам нужно отдохнуть");
+        } else if (EAT < 45 && WET > 45 && CONc > 25) {
+            alert("Вам нужно перекусить");
+        } else if (WET < 45 && EAT > 45 && CONc > 25) {
+            alert("Вам нужно попить");
+        } else if (WET < 45 && EAT < 45 && CONc > 25) {
+            alert("Вам нужно попить и поесть");
+        } else if (WET < 45 && EAT > 45 && CONc < 25) {
+            alert("Вам нужно попить и отдохнуть");
+        } else if (WET > 45 && EAT < 45 && CONc < 25) {
+            alert("Вам нужно отдохнуть и поесть");
+        } else if (WET < 45 && EAT < 45 && CONc < 25) {
+            alert("Вам нужно попить, поесть и отдохнуть");
+        }
+    } else if (LVL < 6 && nrnum >= 2) {
+        alert("Для работы требуется 6 уровень");
+    } else if (LVL < 6 && nrnum < 2) {
+        alert("Для работы требуется 6 уровень и 2 навык работ");
+    } else if (LVL >= 6 && nrnum < 2) {
+        alert("Для работы требуется 2 навык работ");
+    }
+}
+// работа строителя
+
 // работы
 
-// отдых
+// отдых парк
 function PACK0() {
     var conc_id = doc.getElementById("C").innerHTML;
     var conc = Number.parseInt(conc_id);
@@ -2755,7 +3595,7 @@ function PACK0() {
         var conc_id1 = doc.getElementById("C");
         var MON_id1 = doc.getElementById("M");
 
-        conc += 50;
+        conc += 10;
         MON -= 10;
         if (conc < 100) {
             conc_id1.innerHTML = conc;
@@ -2771,27 +3611,91 @@ function PACK0() {
         alert("У вас недостаточно денег");
     }
 }
-// отдых
+// отдых парк
+
+// отдых кино
+function KINO0() {
+    var conc_id = doc.getElementById("C").innerHTML;
+    var conc = Number.parseInt(conc_id);
+
+    var MON_id = doc.getElementById("M").innerHTML;
+    MON = Number.parseInt(MON_id);
+
+    if (MON >= 20 && conc < 100) {
+        var conc_id1 = doc.getElementById("C");
+        var MON_id1 = doc.getElementById("M");
+
+        conc += 20;
+        MON -= 20;
+        if (conc < 100) {
+            conc_id1.innerHTML = conc;
+            MON_id1.innerHTML = MON;
+        } else if (conc >= 100) {
+            conc = 100;
+            conc_id1.innerHTML = conc;
+            MON_id1.innerHTML = MON;
+        }
+    } else if (MON >= 20 && conc == 100) {
+        alert("Вы бодры");
+    } else if (MON < 20 && conc < 100) {
+        alert("У вас недостаточно денег");
+    }
+}
+// отдых кино
+
+// отдых игровойклуб
+function GAME0() {
+    var conc_id = doc.getElementById("C").innerHTML;
+    var conc = Number.parseInt(conc_id);
+
+    var MON_id = doc.getElementById("M").innerHTML;
+    MON = Number.parseInt(MON_id);
+
+    if (MON >= 40 && conc < 100) {
+        var conc_id1 = doc.getElementById("C");
+        var MON_id1 = doc.getElementById("M");
+
+        conc += 40;
+        MON -= 40;
+        if (conc < 100) {
+            conc_id1.innerHTML = conc;
+            MON_id1.innerHTML = MON;
+        } else if (conc >= 100) {
+            conc = 100;
+            conc_id1.innerHTML = conc;
+            MON_id1.innerHTML = MON;
+        }
+    } else if (MON >= 40 && conc == 100) {
+        alert("Вы бодры");
+    } else if (MON < 40 && conc < 100) {
+        alert("У вас недостаточно денег");
+    }
+}
+// отдых игровойклуб
 
 // информация по работам
 function cleainfo() {
-    alert("За данный тип подработки вы получите 1 XP, а так же потратите 15 сытости, 20 жажды и 0 концентрации, для работы не требуется уровень");
+    alert("За данный тип подработки вы получите 1 XP и 1 XP навыка работы, а так же потратите 15 сытости, 20 жажды, 0 концентрации, для работы не требуется уровень");
 }
 
 function prominfo0() {
-    alert("За данный тип подработки вы получите 2 XP, а так же потратите 17 сытости, 22 жажды и 0 концентрации, для работы требуется 2 уровень");
+    alert("За данный тип подработки вы получите 2 XP и 2 XP навыка работы, а так же потратите 17 сытости, 22 жажды, 0 концентрации, для работы требуется 2 уровень");
 }
 
 function grinfo() {
-    alert("За данный тип подработки вы получите 3 XP, а так же потратите 20 сытости, 30 жажды и 0 концентрации, для работы требуется 3 уровень");
+    alert("За данный тип подработки вы получите 3 XP и 3 XP навыка работы, а так же потратите 20 сытости, 30 жажды, 0 концентрации, для работы требуется 3 уровень");
 }
 
 function ofinfo() {
-    alert("За данный тип подработки вы получите 4 XP, а так же потратите 22 сытости 32 жажды и 0 концентрации, для работы требуется 4 уровень");
+    alert("За данный тип подработки вы получите 4 XP и 4 XP навыка работы, а так же потратите 22 сытости 32 жажды, 0 концентрации, для работы требуется 4 уровень");
 }
 
 function driveinfo0() {
-    alert("За данный тип подработки вы получите 6 XP, а так же потратите 40 сытости, 40 жажды и 20 концентрации, для работы требуется 5 уровень");
+    alert("За данный тип подработки вы получите 6 XP и 6 XP навыка работы, а так же потратите 40 сытости, 40 жажды, 20 концентрации, для работы требуется 5 уровень и 1 уровень навыка работ");
+}
+
+function stroinfo0() {
+    alert("За данный тип подработки вы получите 7 XP и 7 XP навыка работы, а так же потратите 45 сытости, 45 жажды, 25 концентрации, для работы требуется 6 уровень и 2 уровень навыка работ");
 }
 // информация по работам
 
@@ -2841,6 +3745,16 @@ function save0() {
     var OL = doc.getElementById("OL").innerHTML;
     var OLnum = Number.parseInt(OL);
     localStorage.setItem("SaveOL", OL);
+
+    localStorage.setItem("onnum", onnum);
+
+    localStorage.setItem("nnum", nnum);
+
+    localStorage.setItem("nrnum", nrnum);
+
+    localStorage.setItem("mest", mest);
+
+    localStorage.setItem("car", car);
 }
 
 function load0() {
@@ -2891,4 +3805,124 @@ function load0() {
     var OLnonum = doc.getElementById("OL");
     OLnum = localStorage.getItem("SaveOL");
     OLnonum.innerHTML = OLnum;
+
+
+    var on1 = localStorage.getItem("onnum");
+    var on = Number.parseInt(on1);
+    onnum = on;
+
+    var n1 = localStorage.getItem("nnum");
+    var n = Number.parseInt(n1);
+    nnum = n;
+
+    var nr1 = localStorage.getItem("nrnum");
+    var nr = Number.parseInt(nr1);
+    nrnum = nr;
+
+    var mest1 = localStorage.getItem("mest");
+    mest = mest1;
+
+    var car1 = localStorage.getItem("car");
+    car = car1;
+}
+
+function LVLUP() {
+    // обнуляем счетчик нашего уровня
+    LVL1 = 0;
+
+    var leavel = doc.getElementById("L");
+
+    leavel.innerHTML = LVL1;
+    // обнуляем счетчик нашего уровня
+
+    // прибавляем 50 к нужному значению опыта
+    OP += 50;
+
+    var OPT = doc.getElementById("OL");
+
+    OPT.innerHTML = OP;
+    // прибавляем 50 к нужному значению опыта
+
+    // прибавляем к уровню 1
+    var L = doc.getElementById("LVL");
+
+    LVL += 1;
+
+    L.innerHTML = LVL;
+
+    // прибавляем к уровню 1
+    var audio = new Audio();
+    audio.src = "Аудио/levelup.mp3";
+    audio.autoplay = true;
+    audio.autoplay = true;
+}
+
+function NAVUP() {
+    // обнуляем счетчик нашего уровня
+    onnum = 0;
+    // обнуляем счетчик нашего уровня
+
+    // прибавляем 50 к нужному значению опыта
+    nnum += 50;
+    // прибавляем 50 к нужному значению опыта
+
+    // прибавляем к уровню 1
+    nrnum += 1;
+    // прибавляем к уровню 1
+}
+
+function marpal01() {
+    var mon = doc.getElementById("M").innerHTML;
+    var monnum = Number.parseInt(mon);
+    var mon1 = doc.getElementById("M");
+
+    if (monnum >= 500) {
+        monnum -= 500;
+        mon1.innerHTML = monnum;
+        mest = "Палатка";
+    } else {
+        alert("Недостаточно денег");
+    }
+}
+
+function marsar01() {
+    var mon = doc.getElementById("M").innerHTML;
+    var monnum = Number.parseInt(mon);
+    var mon1 = doc.getElementById("M");
+
+    if (monnum >= 2500) {
+        monnum -= 2500;
+        mon1.innerHTML = monnum;
+        mest = "Сарай";
+    } else {
+        alert("Недостаточно денег");
+    }
+}
+
+function marskate01() {
+    var mon = doc.getElementById("M").innerHTML;
+    var monnum = Number.parseInt(mon);
+    var mon1 = doc.getElementById("M");
+
+    if (monnum >= 2500) {
+        monnum -= 2500;
+        mon1.innerHTML = monnum;
+        car = "Скейт";
+    } else {
+        alert("Недостаточно денег");
+    }
+}
+
+function marvelo01() {
+    var mon = doc.getElementById("M").innerHTML;
+    var monnum = Number.parseInt(mon);
+    var mon1 = doc.getElementById("M");
+
+    if (monnum >= 2500) {
+        monnum -= 2500;
+        mon1.innerHTML = monnum;
+        car = "Велосипед";
+    } else {
+        alert("Недостаточно денег");
+    }
 }
