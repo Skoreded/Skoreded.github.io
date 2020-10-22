@@ -1,5 +1,5 @@
 ﻿window.onload = function () {
-    alert("Новые изменения: \n 1. Добавлена кнопка настройки, в которой вы теперь можете \n сохранять свой прогресс, а так же загружать его. \n 2. Теперь при выходе из разделов магазина, вы попадете в \n магазин, а не в начало игры. \n 3. Был доработан и оптимизирован код. \n 4. Кнопка 'Работа' стала активной и теперь доступен 1 вид работы \n (beta 1.0). \n 5. Добавлена концетрация, которая траться на Работах. \n 6. Добавлена кнопка отдыха, в ней восстанавливается \n концентрация");
+    alert("Новые изменения: \n 1. Магазин 24/7 перенесен во вкладку 'Магазины'. \n 2. Появилась вкладка продукты. \n 3. Разделы 'Подработка', 'Работы' и 'Отдых' перенесены во вкладку \n 'Вид деятельности'. \n 4. Появилась вкладка 'Вид деятельности'. \n 5. Изменены кнопки 'Сохранить' и 'Загрузить'. ");
     alert("Здравствуй, ты запустил/ла мой первый проект, в котором я решил сделать кнопочную игру в жанре 'симулятора жизни/бомжа'. Рекомендуется играть в Microsoft Edge для корректного воспроизведения музыки. А сейчас введи пожалуйста свой игровой ник.");
     var name = prompt("Введи свое игровое имя");
     //var test = document.createElement("p");
@@ -43,47 +43,184 @@ var doc = document; // кеширование document
 
 // интерфейсы 
 
-// интерфейс настроек
-function sesting0() {
+// интерфейс вида деятельности
+function deyt0() {
     var marcet = doc.getElementById("marcet");
     doc.body.removeChild(marcet);
 
-    var work = doc.getElementById("work");
-    doc.body.removeChild(work);
-
-    var workgl = doc.getElementById("workgl");
-    doc.body.removeChild(workgl);
+    var deyt = doc.getElementById("deyt");
+    doc.body.removeChild(deyt);
 
     var sesting = doc.getElementById("sesting");
     doc.body.removeChild(sesting);
 
-    var rest = doc.getElementById("rest");
-    doc.body.removeChild(rest);
+    var EWM = doc.getElementById("td1");
 
-    var save = doc.createElement("input");
-    save.type = "button"
-    save.value = "Сохранить";
-    save.id = "Save";
-    doc.body.appendChild(save);
+    // подработка
+    var work = doc.createElement("tr");
+    work.id = "work";
+    EWM.parentNode.insertBefore(work, EWM);
 
-    var savebut = doc.getElementById("Save");
-    savebut.onclick = save0;
+    var tdeat = doc.createElement("td");
+    tdeat.id = "tdeat";
+    work.appendChild(tdeat);
 
-    var load = doc.createElement("input");
-    load.type = "button"
-    load.value = "Загрузить";
-    load.id = "Load";
-    doc.body.appendChild(load);
+    var tdeat1 = doc.getElementById("tdeat");
 
-    var loadbut = doc.getElementById("Load");
-    loadbut.onclick = load0;
+    var tdEAT = doc.createElement("img");
+    tdEAT.src = "Фото/PWORK.png";
+    tdeat1.appendChild(tdEAT);
+
+    var EAT1 = doc.createElement("td");
+    EAT1.innerHTML = "Подработка";
+    work.appendChild(EAT1);
+
+    var BUTEAT = doc.createElement("input");
+    BUTEAT.type = "button"
+    BUTEAT.value = "Посмотреты список";
+    BUTEAT.id = "marcetEAT";
+    work.appendChild(BUTEAT);
+
+    var marcetEAT = doc.getElementById("marcetEAT");
+    marcetEAT.onclick = work0;
+    // подработка
+
+    // работа
+    var workgl = doc.createElement("tr");
+    workgl.id = "workgl";
+    EWM.parentNode.insertBefore(workgl, EWM);
+
+    var tdworkgl = doc.createElement("td");
+    tdworkgl.id = "tdworkgl";
+    workgl.appendChild(tdworkgl);
+
+    var tdworkgl1 = doc.getElementById("tdworkgl");
+
+    var tdworkgl = doc.createElement("img");
+    tdworkgl.src = "Фото/WORK.png";
+    tdworkgl1.appendChild(tdworkgl);
+
+    var workgl1 = doc.createElement("td");
+    workgl1.innerHTML = "Работа";
+    workgl.appendChild(workgl1);
+
+    var BUTworkgl = doc.createElement("input");
+    BUTworkgl.type = "button"
+    BUTworkgl.value = "Посмотреты список";
+    BUTworkgl.id = "BUTworkgl";
+    workgl.appendChild(BUTworkgl);
+
+    var marcetworkgl = doc.getElementById("BUTworkgl");
+    marcetworkgl.onclick = work01;
+    // работа
+
+    // отдых
+    var workgl1 = doc.createElement("tr");
+    workgl1.id = "rest";
+    EWM.parentNode.insertBefore(workgl1, EWM);
+
+    var tdworkgl1 = doc.createElement("td");
+    tdworkgl1.id = "tdworkgl1";
+    workgl1.appendChild(tdworkgl1);
+
+    var tdworkgl11 = doc.getElementById("tdworkgl1");
+
+    var tdworkgl1 = doc.createElement("img");
+    tdworkgl1.src = "Фото/REST.png";
+    tdworkgl11.appendChild(tdworkgl1);
+
+    var workgl11 = doc.createElement("td");
+    workgl11.innerHTML = "Отдых";
+    workgl1.appendChild(workgl11);
+
+    var BUTworkgl1 = doc.createElement("input");
+    BUTworkgl1.type = "button"
+    BUTworkgl1.value = "Посмотреты список";
+    BUTworkgl1.id = "BUTworkgl1";
+    workgl1.appendChild(BUTworkgl1);
+
+    var marcetworkgl1 = doc.getElementById("BUTworkgl1");
+    marcetworkgl1.onclick = rest0;
+    // отдых
 
     var back = doc.createElement("input");
     back.type = "button"
     back.value = "Назад";
     back.id = "back";
     doc.body.appendChild(back);
+    var backbut = doc.getElementById("back");
+    backbut.onclick = backdeyt;
+}
+// интерфейс вида деятельности
 
+// интерфейс настроек
+function sesting0() {
+    var EWM = doc.getElementById("td1");
+
+    var marcet = doc.getElementById("marcet");
+    doc.body.removeChild(marcet);
+
+    var deyt = doc.getElementById("deyt");
+    doc.body.removeChild(deyt);
+
+    var sesting = doc.getElementById("sesting");
+    doc.body.removeChild(sesting);
+
+    // сохранить
+    var save = doc.createElement("tr");
+    save.id = "save";
+    EWM.parentNode.insertBefore(save, EWM);
+
+    var tdsave = doc.createElement("td");
+    tdsave.id = "tdsave";
+    save.appendChild(tdsave);
+
+    var tdsave1 = doc.getElementById("tdsave");
+
+    var tdSAVE = doc.createElement("img");
+    tdSAVE.src = "Фото/SAVE.png";
+    tdsave1.appendChild(tdSAVE);;
+
+    var BUTSAVE = doc.createElement("input");
+    BUTSAVE.type = "button"
+    BUTSAVE.value = "Сохранить";
+    BUTSAVE.id = "BUTSAVE";
+    save.appendChild(BUTSAVE);
+
+    var marcetsave = doc.getElementById("BUTSAVE");
+    marcetsave.onclick = save0;
+    // сохранить
+
+    // загрузить
+    var load = doc.createElement("tr");
+    load.id = "load";
+    EWM.parentNode.insertBefore(load, EWM);
+
+    var tdload = doc.createElement("td");
+    tdload.id = "tdload";
+    load.appendChild(tdload);
+
+    var tdload1 = doc.getElementById("tdload");
+
+    var tdLOAD = doc.createElement("img");
+    tdLOAD.src = "Фото/LOAD.png";
+    tdload1.appendChild(tdLOAD);
+
+    var BUTLOAD = doc.createElement("input");
+    BUTLOAD.type = "button"
+    BUTLOAD.value = "Загрузить";
+    BUTLOAD.id = "BUTLOAD";
+    load.appendChild(BUTLOAD);
+
+    var marcetLOAD = doc.getElementById("BUTLOAD");
+    marcetLOAD.onclick = load0;
+    // загрузить
+
+    var back = doc.createElement("input");
+    back.type = "button"
+    back.value = "Назад";
+    back.id = "back";
+    doc.body.appendChild(back);
     var backbut = doc.getElementById("back");
     backbut.onclick = back0;
 }
@@ -91,8 +228,8 @@ function sesting0() {
 
 // интерфейс магазина
 function marcet0() {
-    var WORK = doc.getElementById("workgl");
-    doc.body.removeChild(WORK);
+    var deyt = doc.getElementById("deyt");
+    doc.body.removeChild(deyt);
 
     var sesting = doc.getElementById("sesting");
     doc.body.removeChild(sesting);
@@ -111,11 +248,66 @@ function marcet0() {
     var bm = doc.getElementById("marcet");
     doc.body.removeChild(bm);
 
-    var bw = doc.getElementById("work");
-    doc.body.removeChild(bw);
+    // продукты
+    var eat = doc.createElement("tr");
+    eat.id = "eat";
+    EWM.parentNode.insertBefore(eat, EWM);
 
-    var rest = doc.getElementById("rest");
-    doc.body.removeChild(rest);
+    var tdeat = doc.createElement("td");
+    tdeat.id = "tdeat";
+    eat.appendChild(tdeat);
+
+    var tdeat1 = doc.getElementById("tdeat");
+
+    var tdEAT = doc.createElement("img");
+    tdEAT.src = "Фото/PROD.png";
+    tdeat1.appendChild(tdEAT);
+
+    var EAT1 = doc.createElement("td");
+    EAT1.innerHTML = "Продукты";
+    eat.appendChild(EAT1);
+
+    var BUTEAT = doc.createElement("input");
+    BUTEAT.type = "button"
+    BUTEAT.value = "Посмотреть";
+    BUTEAT.id = "marcetEAT";
+    eat.appendChild(BUTEAT);
+
+    var marcetEAT = doc.getElementById("marcetEAT");
+    marcetEAT.onclick = marcet01;
+    // продукты
+
+    // кнопка назад
+    var back = doc.createElement("input");
+    back.type = "button";
+    back.value = "Назад";
+    back.id = "back";
+    doc.body.appendChild(back);
+
+    var butback = doc.getElementById("back");
+    butback.onclick = backmenumagaz;
+    // кнопка назад
+}
+// интерфейс магазина
+
+// интерфейс магазина продуктов
+function marcet01() {
+    var EAT_id = doc.getElementById("E").innerHTML;
+    EAT = Number.parseInt(EAT_id);
+
+    var WET_id = doc.getElementById("W").innerHTML;
+    WET = Number.parseInt(WET_id);
+
+    var MON_id = doc.getElementById("M").innerHTML;
+    MON = Number.parseInt(MON_id);
+
+    var EWM = doc.getElementById("td1");
+
+    var bm = doc.getElementById("eat");
+    bm.parentNode.removeChild(bm);
+
+    var back = doc.getElementById("back");
+    back.parentNode.removeChild(back);
 
     // еда
     var eat = doc.createElement("tr");
@@ -183,10 +375,10 @@ function marcet0() {
     doc.body.appendChild(back);
 
     var butback = doc.getElementById("back");
-    butback.onclick = backmenumagaz;
+    butback.onclick = backmenumagaz0;
     // кнопка назад
 }
-// интерфейс магазина
+// интерфейс магазина продуктов
 
 // интерфейс магазина еды
 function marceteat() {
@@ -358,7 +550,7 @@ function marceteat() {
     // кнопка назад
     var back = doc.createElement("input");
     back.type = "button";
-    back.value = "В меню";
+    back.value = "Назад";
     back.id = "back";
     doc.body.appendChild(back);
 
@@ -539,7 +731,7 @@ function marcetwet() {
     // кнопка назад
     var back = doc.createElement("input");
     back.type = "button";
-    back.value = "В меню";
+    back.value = "Назад";
     back.id = "back";
     doc.body.appendChild(back);
 
@@ -549,13 +741,19 @@ function marcetwet() {
 }
 // интерфейс мазагина напитков
 
-// интерфейс работ
+// интерфейс подработки
 function work0() {
-    var WORK = doc.getElementById("workgl");
-    doc.body.removeChild(WORK);
+    var work = doc.getElementById("work");
+    work.parentNode.removeChild(work);
 
-    var sesting = doc.getElementById("sesting");
-    doc.body.removeChild(sesting);
+    var workgl = doc.getElementById("workgl");
+    workgl.parentNode.removeChild(workgl);
+
+    var rest = doc.getElementById("rest");
+    rest.parentNode.removeChild(rest);
+
+    var back = doc.getElementById("back");
+    back.parentNode.removeChild(back);
 
     var EAT_id = doc.getElementById("E").innerHTML;
     EAT = Number.parseInt(EAT_id);
@@ -567,15 +765,6 @@ function work0() {
     MON = Number.parseInt(MON_id);
 
     var EWM = doc.getElementById("td1");
-
-    var bm = doc.getElementById("marcet");
-    doc.body.removeChild(bm);
-
-    var bw = doc.getElementById("work");
-    doc.body.removeChild(bw);
-
-    var rest = doc.getElementById("rest");
-    doc.body.removeChild(rest);
 
     // уборщик
     var clea = doc.createElement("tr");
@@ -740,26 +929,23 @@ function work0() {
     butback.onclick = backmenuwork;
     // кнопка назад
 }
-// интерфейс работ
+// интерфейс подработки
 
 // интерфейс главных работ
 function work01() {
     var EWM = doc.getElementById("td1");
 
-    var marcet = doc.getElementById("marcet");
-    doc.body.removeChild(marcet);
-
     var work = doc.getElementById("work");
-    doc.body.removeChild(work);
+    work.parentNode.removeChild(work);
 
     var workgl = doc.getElementById("workgl");
-    doc.body.removeChild(workgl);
-
-    var sesting = doc.getElementById("sesting");
-    doc.body.removeChild(sesting);
+    workgl.parentNode.removeChild(workgl);
 
     var rest = doc.getElementById("rest");
-    doc.body.removeChild(rest);
+    rest.parentNode.removeChild(rest);
+
+    var back = doc.getElementById("back");
+    back.parentNode.removeChild(back);
 
     // стройка
     var STR = doc.createElement("tr");
@@ -862,20 +1048,17 @@ function str0() {
 
 // интерфейс отдыха
 function rest0() {
-    var marcet = doc.getElementById("marcet");
-    doc.body.removeChild(marcet);
-
     var work = doc.getElementById("work");
-    doc.body.removeChild(work);
+    work.parentNode.removeChild(work);
 
     var workgl = doc.getElementById("workgl");
-    doc.body.removeChild(workgl);
-
-    var sesting = doc.getElementById("sesting");
-    doc.body.removeChild(sesting);
+    workgl.parentNode.removeChild(workgl);
 
     var rest = doc.getElementById("rest");
-    doc.body.removeChild(rest);
+    rest.parentNode.removeChild(rest);
+
+    var back = doc.getElementById("back");
+    back.parentNode.removeChild(back);
 
     var EWM = doc.getElementById("td1");
 
@@ -931,51 +1114,25 @@ function backmenumagaz() {
     var eat = doc.getElementById("eat");
     eat.parentNode.removeChild(eat);
 
-    var wet = doc.getElementById("wet");
-    wet.parentNode.removeChild(wet);
-
     var back = doc.getElementById("back");
     back.parentNode.removeChild(back);
 
-    // кнопка магазина
-    var butmarcet = doc.createElement("input");
-    butmarcet.type = "button";
-    butmarcet.value = "Магазин 24/7";
-    butmarcet.id = "marcet";
-    doc.body.appendChild(butmarcet);
-    var marcet = doc.getElementById("marcet");
-    marcet.onclick = marcet0;
-    // кнопка магазина
+    var magaz = doc.createElement("input");
+    magaz.type = "button"
+    magaz.value = "Магазины";
+    magaz.id = "marcet";
+    doc.body.appendChild(magaz);
+    var magazbut = doc.getElementById("marcet");
+    magazbut.onclick = marcet0;
 
-    // кнопка работ
-    var butwork = doc.createElement("input");
-    butwork.type = "button";
-    butwork.value = "Подработка";
-    butwork.id = "work";
-    doc.body.appendChild(butwork);
-    var work = doc.getElementById("work");
-    work.onclick = work0;
+    var deyt = doc.createElement("input");
+    deyt.type = "button"
+    deyt.value = "Вид деятельности";
+    deyt.id = "deyt";
+    doc.body.appendChild(deyt);
+    var deytbut = doc.getElementById("deyt");
+    deytbut.onclick = deyt0;
 
-    var butwork1 = doc.createElement("input");
-    butwork1.type = "button";
-    butwork1.value = "Работа";
-    butwork1.id = "workgl";
-    doc.body.appendChild(butwork1);
-    var work1 = doc.getElementById("workgl");
-    work1.onclick = work01;
-    // кнопка работ
-
-    // кнопка отдыха
-    var rest = doc.createElement("input");
-    rest.type = "button"
-    rest.value = "Отдых";
-    rest.id = "rest";
-    doc.body.appendChild(rest);
-    var restbut = doc.getElementById("rest");
-    restbut.onclick = rest0;
-    // кнопка отдыха
-
-    // кнопка настроек
     var sesting = doc.createElement("input");
     sesting.type = "button"
     sesting.value = "Настройки";
@@ -983,11 +1140,63 @@ function backmenumagaz() {
     doc.body.appendChild(sesting);
     var sestingbut = doc.getElementById("sesting");
     sestingbut.onclick = sesting0;
-    // кнопка настроек
 }
 // функция назад в меню из магазина
 
-// функция в магазин из еды
+// функция назад из магазина продуктов
+function backmenumagaz0() {
+    var eat = doc.getElementById("eat");
+    eat.parentNode.removeChild(eat);
+
+    var wet = doc.getElementById("wet");
+    wet.parentNode.removeChild(wet);
+
+    var back = doc.getElementById("back");
+    back.parentNode.removeChild(back);
+
+    var EWM = doc.getElementById("td1");
+
+    // продукты
+    var eat = doc.createElement("tr");
+    eat.id = "eat";
+    EWM.parentNode.insertBefore(eat, EWM);
+
+    var tdeat = doc.createElement("td");
+    tdeat.id = "tdeat";
+    eat.appendChild(tdeat);
+
+    var tdeat1 = doc.getElementById("tdeat");
+
+    var tdEAT = doc.createElement("img");
+    tdEAT.src = "Фото/PROD.png";
+    tdeat1.appendChild(tdEAT);
+
+    var EAT1 = doc.createElement("td");
+    EAT1.innerHTML = "Продукты";
+    eat.appendChild(EAT1);
+
+    var BUTEAT = doc.createElement("input");
+    BUTEAT.type = "button"
+    BUTEAT.value = "Посмотреть";
+    BUTEAT.id = "marcetEAT";
+    eat.appendChild(BUTEAT);
+
+    var marcetEAT = doc.getElementById("marcetEAT");
+    marcetEAT.onclick = marcet01;
+    // продукты
+
+    var back = doc.createElement("input");
+    back.type = "button";
+    back.value = "Назад";
+    back.id = "back";
+    doc.body.appendChild(back);
+
+    var butback = doc.getElementById("back");
+    butback.onclick = backmenumagaz;
+}
+// функция назад из магазина продуктов
+
+// функция назад в магазин из еды
 function backmenueat() {
     var hot = doc.getElementById("hot");
     hot.parentNode.removeChild(hot);
@@ -1074,11 +1283,11 @@ function backmenueat() {
     doc.body.appendChild(back);
 
     var backbut = doc.getElementById("back");
-    backbut.onclick = backmenumagaz;
+    backbut.onclick = backmenumagaz0;
 }
-// функция в магазин из еды
+// функция назад в магазин из еды
 
-// функция в магазин напитков
+// функция назад в магазин напитков
 function backmenuweit() {
     var weit = doc.getElementById("weit");
     weit.parentNode.removeChild(weit);
@@ -1165,9 +1374,9 @@ function backmenuweit() {
     doc.body.appendChild(back);
 
     var backbut = doc.getElementById("back");
-    backbut.onclick = backmenumagaz;
+    backbut.onclick = backmenumagaz0;
 }
-// функция в магазин напитков
+// функция назад в магазин напитков
 
 // функция назад в меню с работы
 function backmenuwork() {
@@ -1186,53 +1395,102 @@ function backmenuwork() {
     var back = doc.getElementById("back");
     back.parentNode.removeChild(back);
 
-    // кнопка магазина
-    var butmarcet = doc.createElement("input");
-    butmarcet.type = "button";
-    butmarcet.value = "Магазин 24/7";
-    butmarcet.id = "marcet";
-    doc.body.appendChild(butmarcet);
-    var marcet = doc.getElementById("marcet");
-    marcet.onclick = marcet0;
-    // кнопка магазина
+    var EWM = doc.getElementById("td1");
 
-    // кнопка работ
-    var butwork = doc.createElement("input");
-    butwork.type = "button";
-    butwork.value = "Подработка";
-    butwork.id = "work";
-    doc.body.appendChild(butwork);
-    var work = doc.getElementById("work");
-    work.onclick = work0;
+    // подработка
+    var work = doc.createElement("tr");
+    work.id = "work";
+    EWM.parentNode.insertBefore(work, EWM);
 
-    var butwork1 = doc.createElement("input");
-    butwork1.type = "button";
-    butwork1.value = "Работа";
-    butwork1.id = "workgl";
-    doc.body.appendChild(butwork1);
-    var work1 = doc.getElementById("workgl");
-    work1.onclick = work01;
-    // кнопка работ
+    var tdeat = doc.createElement("td");
+    tdeat.id = "tdeat";
+    work.appendChild(tdeat);
 
-    // кнопка отдыха
-    var rest = doc.createElement("input");
-    rest.type = "button"
-    rest.value = "Отдых";
-    rest.id = "rest";
-    doc.body.appendChild(rest);
-    var restbut = doc.getElementById("rest");
-    restbut.onclick = rest0;
-    // кнопка отдыха
+    var tdeat1 = doc.getElementById("tdeat");
 
-    // кнопка настроек
-    var sesting = doc.createElement("input");
-    sesting.type = "button"
-    sesting.value = "Настройки";
-    sesting.id = "sesting";
-    doc.body.appendChild(sesting);
-    var sestingbut = doc.getElementById("sesting");
-    sestingbut.onclick = sesting0;
-    // кнопка настроек
+    var tdEAT = doc.createElement("img");
+    tdEAT.src = "Фото/PWORK.png";
+    tdeat1.appendChild(tdEAT);
+
+    var EAT1 = doc.createElement("td");
+    EAT1.innerHTML = "Подработка";
+    work.appendChild(EAT1);
+
+    var BUTEAT = doc.createElement("input");
+    BUTEAT.type = "button"
+    BUTEAT.value = "Посмотреты список";
+    BUTEAT.id = "marcetEAT";
+    work.appendChild(BUTEAT);
+
+    var marcetEAT = doc.getElementById("marcetEAT");
+    marcetEAT.onclick = work0;
+    // подработка
+
+    // работа
+    var workgl = doc.createElement("tr");
+    workgl.id = "workgl";
+    EWM.parentNode.insertBefore(workgl, EWM);
+
+    var tdworkgl = doc.createElement("td");
+    tdworkgl.id = "tdworkgl";
+    workgl.appendChild(tdworkgl);
+
+    var tdworkgl1 = doc.getElementById("tdworkgl");
+
+    var tdworkgl = doc.createElement("img");
+    tdworkgl.src = "Фото/WORK.png";
+    tdworkgl1.appendChild(tdworkgl);
+
+    var workgl1 = doc.createElement("td");
+    workgl1.innerHTML = "Работа";
+    workgl.appendChild(workgl1);
+
+    var BUTworkgl = doc.createElement("input");
+    BUTworkgl.type = "button"
+    BUTworkgl.value = "Посмотреты список";
+    BUTworkgl.id = "BUTworkgl";
+    workgl.appendChild(BUTworkgl);
+
+    var marcetworkgl = doc.getElementById("BUTworkgl");
+    marcetworkgl.onclick = work01;
+    // работа
+
+    // отдых
+    var workgl1 = doc.createElement("tr");
+    workgl1.id = "rest";
+    EWM.parentNode.insertBefore(workgl1, EWM);
+
+    var tdworkgl1 = doc.createElement("td");
+    tdworkgl1.id = "tdworkgl1";
+    workgl1.appendChild(tdworkgl1);
+
+    var tdworkgl11 = doc.getElementById("tdworkgl1");
+
+    var tdworkgl1 = doc.createElement("img");
+    tdworkgl1.src = "Фото/REST.png";
+    tdworkgl11.appendChild(tdworkgl1);
+
+    var workgl11 = doc.createElement("td");
+    workgl11.innerHTML = "Отдых";
+    workgl1.appendChild(workgl11);
+
+    var BUTworkgl1 = doc.createElement("input");
+    BUTworkgl1.type = "button"
+    BUTworkgl1.value = "Посмотреты список";
+    BUTworkgl1.id = "BUTworkgl1";
+    workgl1.appendChild(BUTworkgl1);
+
+    var marcetworkgl1 = doc.getElementById("BUTworkgl1");
+    marcetworkgl1.onclick = rest0;
+    // отдых
+
+    var back = doc.createElement("input");
+    back.type = "button"
+    back.value = "Назад";
+    back.id = "back";
+    doc.body.appendChild(back);
+    var backbut = doc.getElementById("back");
+    backbut.onclick = backdeyt;
 }
 // функция назад в меню с работы
 
@@ -1244,53 +1502,102 @@ function backmenuworkgl() {
     var back = doc.getElementById("back");
     back.parentNode.removeChild(back);
 
-    // кнопка магазина
-    var butmarcet = doc.createElement("input");
-    butmarcet.type = "button";
-    butmarcet.value = "Магазин 24/7";
-    butmarcet.id = "marcet";
-    doc.body.appendChild(butmarcet);
-    var marcet = doc.getElementById("marcet");
-    marcet.onclick = marcet0;
-    // кнопка магазина
+    var EWM = doc.getElementById("td1");
 
-    // кнопка работ
-    var butwork = doc.createElement("input");
-    butwork.type = "button";
-    butwork.value = "Подработка";
-    butwork.id = "work";
-    doc.body.appendChild(butwork);
-    var work = doc.getElementById("work");
-    work.onclick = work0;
+    // подработка
+    var work = doc.createElement("tr");
+    work.id = "work";
+    EWM.parentNode.insertBefore(work, EWM);
 
-    var butwork1 = doc.createElement("input");
-    butwork1.type = "button";
-    butwork1.value = "Работа";
-    butwork1.id = "workgl";
-    doc.body.appendChild(butwork1);
-    var work1 = doc.getElementById("workgl");
-    work1.onclick = work01;
-    // кнопка работ
+    var tdeat = doc.createElement("td");
+    tdeat.id = "tdeat";
+    work.appendChild(tdeat);
 
-    // кнопка отдыха
-    var rest = doc.createElement("input");
-    rest.type = "button"
-    rest.value = "Отдых";
-    rest.id = "rest";
-    doc.body.appendChild(rest);
-    var restbut = doc.getElementById("rest");
-    restbut.onclick = rest0;
-    // кнопка отдыха
+    var tdeat1 = doc.getElementById("tdeat");
 
-    // кнопка настроек
-    var sesting = doc.createElement("input");
-    sesting.type = "button"
-    sesting.value = "Настройки";
-    sesting.id = "sesting";
-    doc.body.appendChild(sesting);
-    var sestingbut = doc.getElementById("sesting");
-    sestingbut.onclick = sesting0;
-    // кнопка настроек
+    var tdEAT = doc.createElement("img");
+    tdEAT.src = "Фото/PWORK.png";
+    tdeat1.appendChild(tdEAT);
+
+    var EAT1 = doc.createElement("td");
+    EAT1.innerHTML = "Подработка";
+    work.appendChild(EAT1);
+
+    var BUTEAT = doc.createElement("input");
+    BUTEAT.type = "button"
+    BUTEAT.value = "Посмотреты список";
+    BUTEAT.id = "marcetEAT";
+    work.appendChild(BUTEAT);
+
+    var marcetEAT = doc.getElementById("marcetEAT");
+    marcetEAT.onclick = work0;
+    // подработка
+
+    // работа
+    var workgl = doc.createElement("tr");
+    workgl.id = "workgl";
+    EWM.parentNode.insertBefore(workgl, EWM);
+
+    var tdworkgl = doc.createElement("td");
+    tdworkgl.id = "tdworkgl";
+    workgl.appendChild(tdworkgl);
+
+    var tdworkgl1 = doc.getElementById("tdworkgl");
+
+    var tdworkgl = doc.createElement("img");
+    tdworkgl.src = "Фото/WORK.png";
+    tdworkgl1.appendChild(tdworkgl);
+
+    var workgl1 = doc.createElement("td");
+    workgl1.innerHTML = "Работа";
+    workgl.appendChild(workgl1);
+
+    var BUTworkgl = doc.createElement("input");
+    BUTworkgl.type = "button"
+    BUTworkgl.value = "Посмотреты список";
+    BUTworkgl.id = "BUTworkgl";
+    workgl.appendChild(BUTworkgl);
+
+    var marcetworkgl = doc.getElementById("BUTworkgl");
+    marcetworkgl.onclick = work01;
+    // работа
+
+    // отдых
+    var workgl1 = doc.createElement("tr");
+    workgl1.id = "rest";
+    EWM.parentNode.insertBefore(workgl1, EWM);
+
+    var tdworkgl1 = doc.createElement("td");
+    tdworkgl1.id = "tdworkgl1";
+    workgl1.appendChild(tdworkgl1);
+
+    var tdworkgl11 = doc.getElementById("tdworkgl1");
+
+    var tdworkgl1 = doc.createElement("img");
+    tdworkgl1.src = "Фото/REST.png";
+    tdworkgl11.appendChild(tdworkgl1);
+
+    var workgl11 = doc.createElement("td");
+    workgl11.innerHTML = "Отдых";
+    workgl1.appendChild(workgl11);
+
+    var BUTworkgl1 = doc.createElement("input");
+    BUTworkgl1.type = "button"
+    BUTworkgl1.value = "Посмотреты список";
+    BUTworkgl1.id = "BUTworkgl1";
+    workgl1.appendChild(BUTworkgl1);
+
+    var marcetworkgl1 = doc.getElementById("BUTworkgl1");
+    marcetworkgl1.onclick = rest0;
+    // отдых
+
+    var back = doc.createElement("input");
+    back.type = "button"
+    back.value = "Назад";
+    back.id = "back";
+    doc.body.appendChild(back);
+    var backbut = doc.getElementById("back");
+    backbut.onclick = backdeyt;
 }
 // функция выхода в меню с главных работ
 
@@ -1345,46 +1652,30 @@ function backSRT0() {
 
 // выход из настроек
 function back0() {
-    var Save = doc.getElementById("Save");
-    doc.body.removeChild(Save);
+    var Save = doc.getElementById("save");
+    Save.parentNode.removeChild(Save);
 
-    var Load = doc.getElementById("Load");
-    doc.body.removeChild(Load);
+    var Load = doc.getElementById("load");
+    Load.parentNode.removeChild(Load);
 
     var back = doc.getElementById("back");
     doc.body.removeChild(back);
 
     var magaz = doc.createElement("input");
     magaz.type = "button"
-    magaz.value = "Магазин 24/7";
+    magaz.value = "Магазины";
     magaz.id = "marcet";
     doc.body.appendChild(magaz);
     var magazbut = doc.getElementById("marcet");
     magazbut.onclick = marcet0;
 
-    var work = doc.createElement("input");
-    work.type = "button"
-    work.value = "Подработка";
-    work.id = "work";
-    doc.body.appendChild(work);
-    var backbut = doc.getElementById("work");
-    backbut.onclick = work0;
-
-    var workgl = doc.createElement("input");
-    workgl.type = "button"
-    workgl.value = "Работа";
-    workgl.id = "workgl";
-    doc.body.appendChild(workgl);
-    var workglkbut = doc.getElementById("workgl");
-    workglkbut.onclick = work01;
-
-    var rest = doc.createElement("input");
-    rest.type = "button"
-    rest.value = "Отдых";
-    rest.id = "rest";
-    doc.body.appendChild(rest);
-    var restbut = doc.getElementById("rest");
-    restbut.onclick = rest0;
+    var deyt = doc.createElement("input");
+    deyt.type = "button"
+    deyt.value = "Вид деятельности";
+    deyt.id = "deyt";
+    doc.body.appendChild(deyt);
+    var deytbut = doc.getElementById("deyt");
+    deytbut.onclick = deyt0;
 
     var sesting = doc.createElement("input");
     sesting.type = "button"
@@ -1392,7 +1683,7 @@ function back0() {
     sesting.id = "sesting";
     doc.body.appendChild(sesting);
     var sestingbut = doc.getElementById("sesting");
-    sestingbut.onclick = sesting0;    
+    sestingbut.onclick = sesting0;
 }
 // выход из настроек
 
@@ -1403,45 +1694,136 @@ function backmenurest0() {
 
     var park = doc.getElementById("park");
     park.parentNode.removeChild(park);
-    // кнопка магазина
-    var butmarcet = doc.createElement("input");
-    butmarcet.type = "button";
-    butmarcet.value = "Магазин 24/7";
-    butmarcet.id = "marcet";
-    doc.body.appendChild(butmarcet);
-    var marcet = doc.getElementById("marcet");
-    marcet.onclick = marcet0;
-    // кнопка магазина
 
-    // кнопка работ
-    var butwork = doc.createElement("input");
-    butwork.type = "button";
-    butwork.value = "Подработка";
-    butwork.id = "work";
-    doc.body.appendChild(butwork);
+    var EWM = doc.getElementById("td1");
+
+    // подработка
+    var work = doc.createElement("tr");
+    work.id = "work";
+    EWM.parentNode.insertBefore(work, EWM);
+
+    var tdeat = doc.createElement("td");
+    tdeat.id = "tdeat";
+    work.appendChild(tdeat);
+
+    var tdeat1 = doc.getElementById("tdeat");
+
+    var tdEAT = doc.createElement("img");
+    tdEAT.src = "Фото/PWORK.png";
+    tdeat1.appendChild(tdEAT);
+
+    var EAT1 = doc.createElement("td");
+    EAT1.innerHTML = "Подработка";
+    work.appendChild(EAT1);
+
+    var BUTEAT = doc.createElement("input");
+    BUTEAT.type = "button"
+    BUTEAT.value = "Посмотреты список";
+    BUTEAT.id = "marcetEAT";
+    work.appendChild(BUTEAT);
+
+    var marcetEAT = doc.getElementById("marcetEAT");
+    marcetEAT.onclick = work0;
+    // подработка
+
+    // работа
+    var workgl = doc.createElement("tr");
+    workgl.id = "workgl";
+    EWM.parentNode.insertBefore(workgl, EWM);
+
+    var tdworkgl = doc.createElement("td");
+    tdworkgl.id = "tdworkgl";
+    workgl.appendChild(tdworkgl);
+
+    var tdworkgl1 = doc.getElementById("tdworkgl");
+
+    var tdworkgl = doc.createElement("img");
+    tdworkgl.src = "Фото/WORK.png";
+    tdworkgl1.appendChild(tdworkgl);
+
+    var workgl1 = doc.createElement("td");
+    workgl1.innerHTML = "Работа";
+    workgl.appendChild(workgl1);
+
+    var BUTworkgl = doc.createElement("input");
+    BUTworkgl.type = "button"
+    BUTworkgl.value = "Посмотреты список";
+    BUTworkgl.id = "BUTworkgl";
+    workgl.appendChild(BUTworkgl);
+
+    var marcetworkgl = doc.getElementById("BUTworkgl");
+    marcetworkgl.onclick = work01;
+    // работа
+
+    // отдых
+    var workgl1 = doc.createElement("tr");
+    workgl1.id = "rest";
+    EWM.parentNode.insertBefore(workgl1, EWM);
+
+    var tdworkgl1 = doc.createElement("td");
+    tdworkgl1.id = "tdworkgl1";
+    workgl1.appendChild(tdworkgl1);
+
+    var tdworkgl11 = doc.getElementById("tdworkgl1");
+
+    var tdworkgl1 = doc.createElement("img");
+    tdworkgl1.src = "Фото/REST.png";
+    tdworkgl11.appendChild(tdworkgl1);
+
+    var workgl11 = doc.createElement("td");
+    workgl11.innerHTML = "Отдых";
+    workgl1.appendChild(workgl11);
+
+    var BUTworkgl1 = doc.createElement("input");
+    BUTworkgl1.type = "button"
+    BUTworkgl1.value = "Посмотреты список";
+    BUTworkgl1.id = "BUTworkgl1";
+    workgl1.appendChild(BUTworkgl1);
+
+    var marcetworkgl1 = doc.getElementById("BUTworkgl1");
+    marcetworkgl1.onclick = rest0;
+    // отдых
+
+    var back = doc.createElement("input");
+    back.type = "button"
+    back.value = "Назад";
+    back.id = "back";
+    doc.body.appendChild(back);
+    var backbut = doc.getElementById("back");
+    backbut.onclick = backdeyt;
+}
+// выход в меню с отдыха
+
+// выход с вида деятельеости в меню
+function backdeyt() {
     var work = doc.getElementById("work");
-    work.onclick = work0;
+    work.parentNode.removeChild(work);
 
-    var butwork1 = doc.createElement("input");
-    butwork1.type = "button";
-    butwork1.value = "Работа";
-    butwork1.id = "workgl";
-    doc.body.appendChild(butwork1);
-    var work1 = doc.getElementById("workgl");
-    work1.onclick = work01;
-    // кнопка работ
+    var workgl = doc.getElementById("workgl");
+    workgl.parentNode.removeChild(workgl);
 
-    // кнопка отдыха
-    var rest = doc.createElement("input");
-    rest.type = "button"
-    rest.value = "Отдых";
-    rest.id = "rest";
-    doc.body.appendChild(rest);
-    var restbut = doc.getElementById("rest");
-    restbut.onclick = rest0;
-    // кнопка отдыха
+    var rest = doc.getElementById("rest");
+    rest.parentNode.removeChild(rest);
 
-    // кнопка настроек
+    var back = doc.getElementById("back");
+    back.parentNode.removeChild(back);
+
+    var magaz = doc.createElement("input");
+    magaz.type = "button"
+    magaz.value = "Магазины";
+    magaz.id = "marcet";
+    doc.body.appendChild(magaz);
+    var magazbut = doc.getElementById("marcet");
+    magazbut.onclick = marcet0;
+
+    var deyt = doc.createElement("input");
+    deyt.type = "button"
+    deyt.value = "Вид деятельности";
+    deyt.id = "deyt";
+    doc.body.appendChild(deyt);
+    var deytbut = doc.getElementById("deyt");
+    deytbut.onclick = deyt0;
+
     var sesting = doc.createElement("input");
     sesting.type = "button"
     sesting.value = "Настройки";
@@ -1449,9 +1831,8 @@ function backmenurest0() {
     doc.body.appendChild(sesting);
     var sestingbut = doc.getElementById("sesting");
     sestingbut.onclick = sesting0;
-    // кнопка настроек
 }
-// выход в меню с отдыха
+// выход с вида деятельеости в меню
 
 // функции возврата
 
