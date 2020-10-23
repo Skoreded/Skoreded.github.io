@@ -3904,8 +3904,8 @@ function marskate01() {
     var monnum = Number.parseInt(mon);
     var mon1 = doc.getElementById("M");
 
-    if (monnum >= 2500) {
-        monnum -= 2500;
+    if (monnum >= 150) {
+        monnum -= 150;
         mon1.innerHTML = monnum;
         car = "Скейт";
     } else {
@@ -3918,8 +3918,8 @@ function marvelo01() {
     var monnum = Number.parseInt(mon);
     var mon1 = doc.getElementById("M");
 
-    if (monnum >= 2500) {
-        monnum -= 2500;
+    if (monnum >= 800) {
+        monnum -= 800;
         mon1.innerHTML = monnum;
         car = "Велосипед";
     } else {
