@@ -1,3 +1,74 @@
+body {
+	margin-left: 29%;
+	margin-top: 25%;
+}
+
 .tableEWM {
+	font-size: 120%;
 	border-top: 2px dotted black;
+	margin-left: 13.5%;
+	font-weight: bold;
+}
+
+.tab {
+	width: 47%;
+	font-size: 120%;
+	font-weight: bold;
+	margin-left: 13.5%;
+}
+
+.butplay {
+	font-size: 120%;
+	width: 100%;
+	height: 100%;
+	color: #7DF9FF;
+	background-color: grey;
+}
+
+.butplay:hover {
+	font-size: 120%;
+	width: 100%;
+	height: 90%;
+	color: #7DF9FF;
+	background-color: #616161;
+}
+
+small {
+	color: grey;
+	margin-left: 47%;
+}
+
+.but {
+	font-size: 120%;
+	width: 100%;
+	height: 100%;
+	color: #7DF9FF;
+	background-color: grey;
+}
+.but:hover {
+	font-size: 120%;
+	width: 100%;
+	height: 90%;
+	color: #7DF9FF;
+	background-color: #616161;
+}
+
+
+input {
+	font-size: 110%;
+	color: #7DF9FF;
+	background-color: grey;
+	margin-left: 1%;
+}
+
+input:hover {
+	color: #7DF9FF;
+	background-color: #616161;
+	margin-left: 1%;
+}
+
+.tablemenu {
+	width: 60%;
+	height: 150px;
+	border: 1px dotted grey;
 }

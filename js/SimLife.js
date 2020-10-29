@@ -1,7 +1,8 @@
 ﻿window.onload = function () {
-    alert("Новые изменения: \n 1. Измененна прибыль с водителя на стройке. \n 2. На стройке дабовлена работа строителя. \n 3. Добавлена статистика. \n 4. Добавленны два вида отдыха. \n 5. С помощью подработок и работы можно увеличить 'Навык \n работы'. \n 6. Для работ теперь требуется 'Навык работы'. \n 7. Добавлен магазин транспорта и недвижимости. \n 8. Добавлено 2 вида недвижимости. \n 9. Добавлено 2 вида транспорта. \n 10. Бизнесов пока что еще нет (Работаю над системой \n пассивного заработка). ");
-    alert("Здравствуй, ты запустил/ла мой первый проект, в котором я решил сделать кнопочную игру в жанре 'симулятора жизни/бомжа'. Рекомендуется играть в Microsoft Edge для корректного воспроизведения музыки. А сейчас введи пожалуйста свой игровой ник.");
+    alert("Новые изменения: \n 1. Изменен дизайн. \n 2. Добавлен начальный экран. \n 3. Кнопка загрузки перенесена из игры в начальное меню. \n 4. Добавлено обучение. \n 5. Теперь отображается версия игры. \n 6. Добавлен фон. \n 7. Улучшен и изменен код игры. \n По всем идеям и предложениям писать yarygin.02@mail.ru");
+    alert("Здравствуй, ты запустил/ла мой первый проект, в котором я решил сделать кнопочную игру в жанре 'симулятора жизни/бомжа'. Рекомендуется играть в Microsoft Edge для корректного воспроизведения музыки. А сейчас введи пожалуйста свой игровой ник.");  
     var name = prompt("Введи свое игровое имя");
+    namenum = name;
     //var test = document.createElement("p");
     //test.innerHTML = "<strong> 1 </strong>";
     //var D = document.getElementById("D");
@@ -13,12 +14,6 @@
        
     var audio = document.getElementById("audio");
     audio.volume = 0.3;
-
-    var dop = document.getElementById("lvl");
-    var your = document.createElement("td");
-    your.innerHTML = name;
-    your.id = "name";
-    dop.parentNode.appendChild(your);
 
     /* система бизнеса
     element = 0
@@ -41,14 +36,168 @@
 
 var doc = document; // кеширование document
 
-var nrnum = 0;
+var numlvl = 1; // надо 1
+var numl = 0; // надо 0 
+var numop = 100;
+var numc = 100; // надо 100
+var nume = 100; // надо 100
+var numw = 100; // надо 100
+var numm = 100; // надо 100
+var nrnum = 0;  // надо 0
 var onnum = 0;
 var nnum = 100;
 var mest = "Не имеется";
 var car = "Не имеется";
+var namenum = "Без имени";
 
 // интерфейсы 
+function games() {  
+    var menu = doc.getElementById("menu");
+    doc.body.removeChild(menu);
 
+    // уровень
+    var shkalLVL = doc.getElementById("shkalLVL");
+    var shkalLVLcreate = doc.createElement("td");
+    shkalLVLcreate.id = "UP";
+    var shkalLVLcreateb1 = doc.createElement("b");
+    shkalLVLcreateb1.innerHTML = "Уровень ";
+    var shkalLVLcreate1 = doc.createElement("b");
+    shkalLVLcreate1.innerHTML = numlvl;
+    shkalLVLcreate1.id = "LVL";
+    var shkalLVLcreatedv = doc.createElement("b");
+    shkalLVLcreatedv.innerHTML = ":";
+    shkalLVL.appendChild(shkalLVLcreate);
+    shkalLVLcreate.appendChild(shkalLVLcreateb1);
+    shkalLVLcreate.appendChild(shkalLVLcreate1);
+    shkalLVLcreate.appendChild(shkalLVLcreatedv);
+    var shkalLVL2 = doc.getElementById("shkalLVL");
+    var shkalLVLcreate2 = doc.createElement("td");
+    shkalLVLcreate2.id = "lvl";
+    var shkalLVLcreateb2 = doc.createElement("i");
+    shkalLVLcreateb2.id = "L";
+    shkalLVLcreateb2.innerHTML = numl;
+    var shkalLVLcreatepa = doc.createElement("i");
+    shkalLVLcreatepa.innerHTML = "/";
+    var shkalLVLcreate12 = doc.createElement("i");
+    shkalLVLcreate12.innerHTML = numop;
+    shkalLVLcreate12.id = "OL";
+    var shkalLVLcreatexp = doc.createElement("i");
+    shkalLVLcreatexp.innerHTML = " XP";
+    shkalLVL2.appendChild(shkalLVLcreate2);
+    shkalLVLcreate2.appendChild(shkalLVLcreateb2);
+    shkalLVLcreate2.appendChild(shkalLVLcreatepa);
+    shkalLVLcreate2.appendChild(shkalLVLcreate12);
+    shkalLVLcreate2.appendChild(shkalLVLcreatexp);
+    // уровень
+
+    // показатели
+    var table = doc.createElement("table");
+    table.classList = "tableEWM";
+    doc.body.appendChild(table);
+    var tr1 = doc.createElement("tr");
+    tr1.id = "tr1";
+    var tr2 = doc.createElement("tr");
+    tr2.id = "tr2";
+    var tr3 = doc.createElement("tr");
+    tr3.id = "tr3";
+    var tr4 = doc.createElement("tr");
+    tr4.id = "tr4";
+    table.appendChild(tr1);
+    var tdkc1 = doc.createElement("td");
+    tr1.appendChild(tdkc1);
+    var tdkc1img = doc.createElement("img");
+    tdkc1img.align = "right";
+    tdkc1img.src = "Photo/CONc.png";
+    tdkc1.appendChild(tdkc1img);
+    var tdkc2 = doc.createElement("td");
+    tdkc2.innerHTML = "Концентрация:";
+    tr1.appendChild(tdkc2);
+    var tdkc3 = doc.createElement("td");
+    tdkc3.innerHTML = numc;
+    tdkc3.id = "C";
+    tr1.appendChild(tdkc3);
+    table.appendChild(tr2);
+    var tded1 = doc.createElement("td");
+    tr2.appendChild(tded1);
+    var tded1img = doc.createElement("img");
+    tded1img.align = "right";
+    tded1img.src = "Photo/EAT.png";
+    tded1.appendChild(tded1img);
+    var tded2 = doc.createElement("td");
+    tded2.innerHTML = "Сытость:";
+    tr2.appendChild(tded2);
+    var tded3 = doc.createElement("td");
+    tded3.innerHTML = nume;
+    tded3.id = "E";
+    tr2.appendChild(tded3);
+    table.appendChild(tr3);
+    var tdw1 = doc.createElement("td");
+    tr3.appendChild(tdw1);
+    var tdw1img = doc.createElement("img");
+    tdw1img.src = "Photo/WET.png";
+    tdw1.appendChild(tdw1img);
+    var tdw2 = doc.createElement("td");
+    tdw2.innerHTML = "Жажда:";
+    tr3.appendChild(tdw2);
+    var tdw3 = doc.createElement("td");
+    tdw3.innerHTML = numw;
+    tdw3.id = "W";
+    tr3.appendChild(tdw3);
+    table.appendChild(tr4);
+    var tdm1 = doc.createElement("td");
+    tr4.appendChild(tdm1);
+    var tdm1img = doc.createElement("img");
+    tdm1img.align = "right";
+    tdm1img.src = "Photo/MON.png";
+    tdm1.appendChild(tdm1img);
+    var tdm2 = doc.createElement("td");
+    tdm2.innerHTML = "Деньги:";
+    tr4.appendChild(tdm2);
+    var tdm3 = doc.createElement("td");
+    tdm3.innerHTML = numm;
+    tdm3.id = "M";
+    tr4.appendChild(tdm3);
+    var tdm4 = doc.createElement("td");
+    tdm4.innerHTML = "$";
+    tr4.appendChild(tdm4);
+    // показатели
+
+    // кнопки
+    var marcet = doc.createElement("input");
+    marcet.type = "button"
+    marcet.value = "Магазины";
+    marcet.id = "marcet";
+    doc.body.appendChild(marcet);
+    var marcetonclick = doc.getElementById("marcet");
+    marcetonclick.onclick = marcet0;   
+    var deyt = doc.createElement("input");
+    deyt.type = "button"
+    deyt.value = "Вид деятельности";
+    deyt.id = "deyt";
+    doc.body.appendChild(deyt);
+    var deytonclick = doc.getElementById("deyt");
+    deytonclick.onclick = deyt0;
+    var stat = doc.createElement("input");
+    stat.type = "button"
+    stat.value = "Статистика";
+    stat.id = "stat";
+    doc.body.appendChild(stat);
+    var statonclick = doc.getElementById("stat");
+    statonclick.onclick = stat0;
+    var sesting = doc.createElement("input");
+    sesting.type = "button"
+    sesting.value = "Настройки";
+    sesting.id = "sesting";
+    doc.body.appendChild(sesting);
+    var sestingonclick = doc.getElementById("sesting");
+    sestingonclick.onclick = sesting0;
+    // кнопки
+    var dop = document.getElementById("lvl");
+    var your = document.createElement("td");
+    your.innerHTML = namenum;
+    your.id = "name";
+    dop.parentNode.appendChild(your);
+}
 // интерфейс вида деятельности
 function deyt0() {
     var stat = doc.getElementById("stat");
@@ -202,31 +351,6 @@ function sesting0() {
     var marcetsave = doc.getElementById("BUTSAVE");
     marcetsave.onclick = save0;
     // сохранить
-
-    // загрузить
-    var load = doc.createElement("tr");
-    load.id = "load";
-    EWM.parentNode.insertBefore(load, EWM);
-
-    var tdload = doc.createElement("td");
-    tdload.id = "tdload";
-    load.appendChild(tdload);
-
-    var tdload1 = doc.getElementById("tdload");
-
-    var tdLOAD = doc.createElement("img");
-    tdLOAD.src = "Фото/LOAD.png";
-    tdload1.appendChild(tdLOAD);
-
-    var BUTLOAD = doc.createElement("input");
-    BUTLOAD.type = "button"
-    BUTLOAD.value = "Загрузить";
-    BUTLOAD.id = "BUTLOAD";
-    load.appendChild(BUTLOAD);
-
-    var marcetLOAD = doc.getElementById("BUTLOAD");
-    marcetLOAD.onclick = load0;
-    // загрузить
 
     var back = doc.createElement("input");
     back.type = "button"
@@ -2213,9 +2337,6 @@ function back0() {
     var Save = doc.getElementById("save");
     Save.parentNode.removeChild(Save);
 
-    var Load = doc.getElementById("load");
-    Load.parentNode.removeChild(Load);
-
     var back = doc.getElementById("back");
     doc.body.removeChild(back);
 
@@ -2692,40 +2813,29 @@ function backmenucar() {
 // еда
 
 // восполнение сытости ход-дог
-function HOTDOG() {
-
-    // определяем значение сытости как число
-    var EAT_id = doc.getElementById("E").innerHTML;
-    EAT = Number.parseInt(EAT_id);
-    // определяем значение сытости как число
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-    
-    if (MON >= 10 && EAT < 100) {
+function HOTDOG() {   
+    if (numm >= 10 && nume < 100) {
         var EAT_id1 = doc.getElementById("E");
         var MON_id1 = doc.getElementById("M");
 
-        EAT += 10;
-        MON -= 10;
-        if (EAT < 100) {
-            EAT_id1.innerHTML = EAT;
-            MON_id1.innerHTML = MON;
+        nume += 10;
+        numm -= 10;
+        if (nume < 100) {
+            EAT_id1.innerHTML = nume;
+            MON_id1.innerHTML = numm;
 
             audioeat();
-        } else if (EAT >= 100) {
-            EAT = 100;
-            EAT_id1.innerHTML = EAT;
-            MON_id1.innerHTML = MON;
+        } else if (nume >= 100) {
+            nume = 100;
+            EAT_id1.innerHTML = nume;
+            MON_id1.innerHTML = numm;
 
             audioeat();
 
         }
-    } else if (MON >= 10 && EAT == 100) {
+    } else if (numm >= 10 && nume == 100) {
         alert("Вы сыты");
-    } else if (MON < 10 && EAT < 100) {
+    } else if (numm < 10 && nume < 100) {
         alert("У вас недостаточно денег");
     }
 }
@@ -2733,155 +2843,115 @@ function HOTDOG() {
 
 // восполнение сытости бургер
 function BUR0() {
-    // определяем значение сытости как число
-    var EAT_id = doc.getElementById("E").innerHTML;
-    EAT = Number.parseInt(EAT_id);
-    // определяем значение сытости как число
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    if (MON >= 20 && EAT < 100) {
+    if (numm >= 20 && nume < 100) {
         var EAT_id1 = doc.getElementById("E");
         var MON_id1 = doc.getElementById("M");
 
-        EAT += 30;
-        MON -= 20;
-        if (EAT < 100) {
-            EAT_id1.innerHTML = EAT;
-            MON_id1.innerHTML = MON;
+        nume += 30;
+        numm -= 20;
+        if (nume < 100) {
+            EAT_id1.innerHTML = nume;
+            MON_id1.innerHTML = numm;
 
             audioeat();
-        } else if (EAT >= 100) {
-            EAT = 100;
-            EAT_id1.innerHTML = EAT;
-            MON_id1.innerHTML = MON;
+        } else if (nume >= 100) {
+            nume = 100;
+            EAT_id1.innerHTML = nume;
+            MON_id1.innerHTML = numm;
 
             audioeat();
         }
-    } else if (MON >= 20 && EAT == 100) {
+    } else if (numm >= 20 && nume == 100) {
         alert("Вы сыты");
-    } else if (MON < 20 && EAT < 100) {
+    } else if (numm < 20 && nume < 100) {
         alert("У вас недостаточно денег");
     }
 }
 // восполнение сытости бургер
 
-// восполнение сытости бургер
+// восполнение сытости роллы
 function POL0() {
-    // определяем значение сытости как число
-    var EAT_id = doc.getElementById("E").innerHTML;
-    EAT = Number.parseInt(EAT_id);
-    // определяем значение сытости как число
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    if (MON >= 28 && EAT < 100) {
+    if (numm >= 28 && nume < 100) {
         var EAT_id1 = doc.getElementById("E");
         var MON_id1 = doc.getElementById("M");
 
-        EAT += 33;
-        MON -= 28;
-        if (EAT < 100) {
-            EAT_id1.innerHTML = EAT;
-            MON_id1.innerHTML = MON;
+        nume += 33;
+        numm -= 28;
+        if (nume < 100) {
+            EAT_id1.innerHTML = nume;
+            MON_id1.innerHTML = numm;
 
             audioeat();
-        } else if (EAT >= 100) {
-            EAT = 100;
-            EAT_id1.innerHTML = EAT;
-            MON_id1.innerHTML = MON;
+        } else if (nume >= 100) {
+            nume = 100;
+            EAT_id1.innerHTML = nume;
+            MON_id1.innerHTML = numm;
 
             audioeat();
         }
-    } else if (MON >= 28 && EAT == 100) {
+    } else if (numm >= 28 && nume == 100) {
         alert("Вы сыты");
-    } else if (MON < 28 && EAT < 100) {
+    } else if (numm < 28 && nume < 100) {
         alert("У вас недостаточно денег");
     }
 }
-// восполнение сытости бургер
+// восполнение сытости роллы
 
-// восполнение сытости бургер
+// восполнение сытости пицца
 function PIZ0() {
-    // определяем значение сытости как число
-    var EAT_id = doc.getElementById("E").innerHTML;
-    EAT = Number.parseInt(EAT_id);
-    // определяем значение сытости как число
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    if (MON >= 20 && EAT < 100) {
+    if (numm >= 20 && nume < 100) {
         var EAT_id1 = doc.getElementById("E");
         var MON_id1 = doc.getElementById("M");
 
-        EAT += 45;
-        MON -= 35;
-        if (EAT < 100) {
-            EAT_id1.innerHTML = EAT;
-            MON_id1.innerHTML = MON;
+        nume += 45;
+        numm -= 35;
+        if (nume < 100) {
+            EAT_id1.innerHTML = nume;
+            MON_id1.innerHTML = numm;
 
             audioeat();
-        } else if (EAT >= 100) {
-            EAT = 100;
-            EAT_id1.innerHTML = EAT;
-            MON_id1.innerHTML = MON;
+        } else if (nume >= 100) {
+            nume = 100;
+            EAT_id1.innerHTML = nume;
+            MON_id1.innerHTML = numm;
 
             audioeat();
         }
-    } else if (MON >= 35 && EAT == 100) {
+    } else if (numm >= 35 && nume == 100) {
         alert("Вы сыты");
-    } else if (MON < 35 && EAT < 100) {
+    } else if (numm < 35 && nume < 100) {
         alert("У вас недостаточно денег");
     }
 }
-// восполнение сытости бургер
+// восполнение сытости пицца
 
-// восполнение сытости бургер
+// восполнение сытости суп
 function SOUP0() {
-    // определяем значение сытости как число
-    var EAT_id = doc.getElementById("E").innerHTML;
-    EAT = Number.parseInt(EAT_id);
-    // определяем значение сытости как число
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    if (MON >= 20 && EAT < 100) {
+    if (numm >= 20 && nume < 100) {
         var EAT_id1 = doc.getElementById("E");
         var MON_id1 = doc.getElementById("M");
 
-        EAT += 70;
-        MON -= 50;
-        if (EAT < 100) {
-            EAT_id1.innerHTML = EAT;
-            MON_id1.innerHTML = MON;
+        nume += 70;
+        numm -= 50;
+        if (nume < 100) {
+            EAT_id1.innerHTML = nume;
+            MON_id1.innerHTML = numm;
 
             audioeat();
-        } else if (EAT >= 100) {
-            EAT = 100;
-            EAT_id1.innerHTML = EAT;
-            MON_id1.innerHTML = MON;
+        } else if (nume >= 100) {
+            nume = 100;
+            EAT_id1.innerHTML = EATnume
+            MON_id1.innerHTML = numm;
 
             audioeat();
         }
-    } else if (MON >= 50 && EAT == 100) {
+    } else if (numm >= 50 && nume == 100) {
         alert("Вы сыты");
-    } else if (MON < 50 && EAT < 100) {
+    } else if (numm < 50 && nume < 100) {
         alert("У вас недостаточно денег");
     }
 }
-// восполнение сытости бургер
+// восполнение сытости суп
 
 // еда
 
@@ -2889,37 +2959,27 @@ function SOUP0() {
 
 // выпить воды
 function weit0() {
-    // определяем значение жажды как число
-    var WET_id = doc.getElementById("W").innerHTML;
-    WET = Number.parseInt(WET_id);
-    // определяем значение жажды как число
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    if (MON >= 5 && WET < 100) {
+    if (numm >= 5 && numw < 100) {
         var WET_id1 = doc.getElementById("W");
         var MON_id1 = doc.getElementById("M");
 
-        WET += 10;
-        MON -= 5;
-        if (WET < 100) {
-            WET_id1.innerHTML = WET;
-            MON_id1.innerHTML = MON;
+        numw += 10;
+        numm -= 5;
+        if (numw < 100) {
+            WET_id1.innerHTML = numw;
+            MON_id1.innerHTML = numm;
 
             audiowet();
-        } else if (WET >= 100) {
-            WET = 100;
-            WET_id1.innerHTML = WET;
-            MON_id1.innerHTML = MON;
+        } else if (numw >= 100) {
+            numw = 100;
+            WET_id1.innerHTML = WETnumw
+            MON_id1.innerHTML = numm;
 
             audiowet()
         }
-    } else if (MON >= 5 && WET == 100) {
+    } else if (numm >= 5 && numw == 100) {
         alert("Вы не хотите пить");
-    } else if (MON < 5 && WET < 100) {
+    } else if (numm < 5 && numw < 100) {
         alert("У вас недостаточно денег");
     }
 }
@@ -2927,37 +2987,27 @@ function weit0() {
 
 // выпить пиво
 function piv0() {
-    // определяем значение жажды как число
-    var WET_id = doc.getElementById("W").innerHTML;
-    WET = Number.parseInt(WET_id);
-    // определяем значение жажды как число
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    if (MON >= 10 && WET < 100) {
+    if (numm >= 10 && numw < 100) {
         var WET_id1 = doc.getElementById("W");
         var MON_id1 = doc.getElementById("M");
 
-        WET += 10;
-        MON -= 10;
-        if (WET < 100) {
-            WET_id1.innerHTML = WET;
-            MON_id1.innerHTML = MON;
+        numw += 10;
+        numm -= 10;
+        if (numw < 100) {
+            WET_id1.innerHTML = numw;
+            MON_id1.innerHTML = numm;
 
             audiowet()
-        } else if (WET >= 100) {
-            WET = 100;
-            WET_id1.innerHTML = WET;
-            MON_id1.innerHTML = MON;
+        } else if (numw >= 100) {
+            numw = 100;
+            WET_id1.innerHTML = numw;
+            MON_id1.innerHTML = numm;
 
             audiowet()
         }
-    } else if (MON >= 10 && WET == 100) {
+    } else if (numm >= 10 && numw == 100) {
         alert("Вы не хотите пить");
-    } else if (MON < 10 && WET < 100) {
+    } else if (numm < 10 && numw < 100) {
         alert("У вас недостаточно денег");
     }
 }
@@ -2965,41 +3015,31 @@ function piv0() {
 
 // выпить лимонад
 function lim0() {
-    // определяем значение жажды как число
-    var WET_id = doc.getElementById("W").innerHTML;
-    WET = Number.parseInt(WET_id);
-    // определяем значение жажды как число
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    if (MON >= 20 && WET < 100) {
+    if (numm >= 20 && numw < 100) {
         var WET_id1 = doc.getElementById("W");
         var MON_id1 = doc.getElementById("M");
 
-        WET += 25;
-        MON -= 20;
-        if (WET < 100) {
-            WET_id1.innerHTML = WET;
-            MON_id1.innerHTML = MON;
+        numw += 25;
+        numm -= 20;
+        if (numw < 100) {
+            WET_id1.innerHTML = numw;
+            MON_id1.innerHTML = numm;
 
             var audio = new Audio();
             audio.src = "Аудио/drink.mp3";
             audio.autoplay = true;
-        } else if (WET >= 100) {
-            WET = 100;
-            WET_id1.innerHTML = WET;
-            MON_id1.innerHTML = MON;
+        } else if (numw >= 100) {
+            numw = 100;
+            WET_id1.innerHTML = numw;
+            MON_id1.innerHTML = numm;
 
             var audio = new Audio();
             audio.src = "Аудио/drink.mp3";
             audio.autoplay = true;
         }
-    } else if (MON >= 20 && WET == 100) {
+    } else if (numm >= 20 && numw == 100) {
         alert("Вы не хотите пить");
-    } else if (MON < 20 && WET < 100) {
+    } else if (numm < 20 && numw < 100) {
         alert("У вас недостаточно денег");
     }
 }
@@ -3007,37 +3047,27 @@ function lim0() {
 
 // выпить коктейл
 function kok0() {
-    // определяем значение жажды как число
-    var WET_id = doc.getElementById("W").innerHTML;
-    WET = Number.parseInt(WET_id);
-    // определяем значение жажды как число
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    if (MON >= 35 && WET < 100) {
+    if (numm >= 35 && numw < 100) {
         var WET_id1 = doc.getElementById("W");
         var MON_id1 = doc.getElementById("M");
 
-        WET += 35;
-        MON -= 25;
-        if (WET < 100) {
-            WET_id1.innerHTML = WET;
-            MON_id1.innerHTML = MON;
+        numw += 35;
+        numm -= 25;
+        if (numw < 100) {
+            WET_id1.innerHTML = numw;
+            MON_id1.innerHTML = numm;
 
             audiowet()
-        } else if (WET >= 100) {
-            WET = 100;
-            WET_id1.innerHTML = WET;
-            MON_id1.innerHTML = MON;
+        } else if (numw >= 100) {
+            numw = 100;
+            WET_id1.innerHTML = numw;
+            MON_id1.innerHTML = numm;
 
             audiowet()
         }
-    } else if (MON >= 35 && WET == 100) {
+    } else if (numm >= 35 && numw == 100) {
         alert("Вы не хотите пить");
-    } else if (MON < 35 && WET < 100) {
+    } else if (numm < 35 && numw < 100) {
         alert("У вас недостаточно денег");
     }
 }
@@ -3045,37 +3075,27 @@ function kok0() {
 
 // выпить кофе
 function cof0() {
-    // определяем значение жажды как число
-    var WET_id = doc.getElementById("W").innerHTML;
-    WET = Number.parseInt(WET_id);
-    // определяем значение жажды как число
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    if (MON >= 60 && WET < 100) {
+    if (numm >= 60 && numw < 100) {
         var WET_id1 = doc.getElementById("W");
         var MON_id1 = doc.getElementById("M");
 
-        WET += 60;
-        MON -= 40;
-        if (WET < 100) {
-            WET_id1.innerHTML = WET;
-            MON_id1.innerHTML = MON;
+        numw += 60;
+        numm -= 40;
+        if (numw < 100) {
+            WET_id1.innerHTML = numw;
+            MON_id1.innerHTML = numm;
 
             audiowet()
-        } else if (WET >= 100) {
-            WET = 100;
-            WET_id1.innerHTML = WET;
-            MON_id1.innerHTML = MON;
+        } else if (numw >= 100) {
+            numw = 100;
+            WET_id1.innerHTML = numw;
+            MON_id1.innerHTML = numm;
 
             audiowet()
         }
-    } else if (MON >= 60 && WET == 100) {
+    } else if (numm >= 60 && numw == 100) {
         alert("Вы не хотите пить");
-    } else if (MON < 60 && WET < 100) {
+    } else if (numm < 60 && numw < 100) {
         alert("У вас недостаточно денег");
     }
 }
@@ -3087,72 +3107,36 @@ function cof0() {
 
 // работа уборщика
 function clea0() {
-    // определяем какой у нас уровень
-    var lvl = doc.getElementById("LVL").innerHTML;
-    LVL = Number.parseInt(lvl);
-    //  определяем какой у нас уровень
+    if (nume >= 15 && numw >= 20) {       
+        numl += 1;
 
-    // определяем наши очки опыта
-    var lvl1 = doc.getElementById("L").innerHTML;
-    LVL1 = Number.parseInt(lvl1);
-    //  определяем наши очки опыта
-
-    // определяем сколько надо для повышения уровня
-    var op = doc.getElementById("OL").innerHTML;
-    OP = Number.parseInt(op);
-    // определяем сколько надо для повышения уровня
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    // определяем значение жажды как число
-    var WET_id = doc.getElementById("W").innerHTML;
-    WET = Number.parseInt(WET_id);
-    // определяем значение жажды как число
-
-    // определяем значение сытости как число
-    var EAT_id = doc.getElementById("E").innerHTML;
-    EAT = Number.parseInt(EAT_id);
-    // определяем значение сытости как число
-
-    if (EAT >= 15 && WET >= 20) {        
-        // определяем опыт как число
-        var lvl = doc.getElementById("L").innerHTML;
-        LVL1 = Number.parseInt(lvl);
-        // определяем опыт как число
-        var lvl1 = doc.getElementById("L");
-
-        LVL1 += 1;
-
-        lvl1.innerHTML = LVL1;
-
-        MON += 40;
-        EAT -= 15;
-        WET -= 20;
+        numm += 40;
+        nume -= 15;
+        numw -= 20;
         onnum += 1;
 
-        var MON_id1 = doc.getElementById("M");
-        var EAT_id1 = doc.getElementById("E");
-        var WET_id1 = doc.getElementById("W");
+        var e = doc.getElementById("E");
+        e.innerHTML = nume;
+        var w = doc.getElementById("W");
+        w.innerHTML = numw;
+        var m = doc.getElementById("M");
+        m.innerHTML = numm;
+        var l = doc.getElementById("L");
+        l.innerHTML = numl;
 
-        MON_id1.innerHTML = MON;
-        EAT_id1.innerHTML = EAT;
-        WET_id1.innerHTML = WET;
         if (onnum >= nnum) {
             NAVUP();
         } else { }
 
-        if (LVL1 >= OP) {
+        if (numl >= numop) {
             LVLUP();
         } else { }
 
-    } else if (EAT < 15 && WET > 20) {
+    } else if (nume < 15 && numw > 20) {
         alert("Вам нужно перекусить");
-    } else if (WET < 20 && EAT > 15) {
+    } else if (numw < 20 && nume > 15) {
         alert("Вам нужно попить");
-    } else if (WET < 20 && EAT < 15) {
+    } else if (numw < 20 && nume < 15) {
         alert("Вам нужно попить и поесть");
     }
 }
@@ -3160,326 +3144,176 @@ function clea0() {
 
 // работа промоутера
 function prom0() {
-    // определяем какой у нас уровень
-    var lvl = doc.getElementById("LVL").innerHTML;
-    LVL = Number.parseInt(lvl);
-    //  определяем какой у нас уровень
+    if (numlvl >= 2) { 
+        if (nume >= 17 && numw >= 22) {
+            numl += 2;
 
-    // определяем наши очки опыта
-    var lvl1 = doc.getElementById("L").innerHTML;
-    LVL1 = Number.parseInt(lvl1);
-    //  определяем наши очки опыта
+            numm += 50;
+            nume -= 17;
+            numw -= 22;
+            onnum += 2;
 
-    // определяем сколько надо для повышения уровня
-    var op = doc.getElementById("OL").innerHTML;
-    OP = Number.parseInt(op);
-    // определяем сколько надо для повышения уровня
+            var e = doc.getElementById("E");
+            e.innerHTML = nume;
+            var w = doc.getElementById("W");
+            w.innerHTML = numw;
+            var m = doc.getElementById("M");
+            m.innerHTML = numm;
+            var l = doc.getElementById("L");
+            l.innerHTML = numl;
 
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
+            if (onnum >= nnum) {
+                NAVUP();
+            } else { }
+            if (numl >= numop) {
+                LVLUP();
+            } else { }
 
-    // определяем значение жажды как число
-    var WET_id = doc.getElementById("W").innerHTML;
-    WET = Number.parseInt(WET_id);
-    // определяем значение жажды как число
-
-    // определяем значение сытости как число
-    var EAT_id = doc.getElementById("E").innerHTML;
-    EAT = Number.parseInt(EAT_id);
-    // определяем значение сытости как число
-
-    if (LVL >= 2) { 
-        if (EAT >= 17 && WET >= 22) {           
-            // определяем опыт как число
-            var lvl = doc.getElementById("L").innerHTML;
-            LVL1 = Number.parseInt(lvl);
-            // определяем опыт как число
-            var lvl1 = doc.getElementById("L");
-
-            LVL1 += 2;
-
-            lvl1.innerHTML = LVL1;
-
-        MON += 50;
-        EAT -= 17;
-        WET -= 22;
-        onnum += 2;
-
-        var MON_id1 = doc.getElementById("M");
-        var EAT_id1 = doc.getElementById("E");
-        var WET_id1 = doc.getElementById("W");
-
-        MON_id1.innerHTML = MON;
-        EAT_id1.innerHTML = EAT;
-        WET_id1.innerHTML = WET;
-
-        if (onnum >= nnum) {
-            NAVUP();
-        } else { }
-        if (LVL1 >= OP) {
-            LVLUP();
-        } else { }
-
-        } else if (EAT < 17 && WET > 22) {
-            alert("Вам нужно перекусить");
-        } else if (WET < 22 && EAT > 17) {
-            alert("Вам нужно попить");
-        } else if (WET < 22 && EAT < 17) {
-            alert("Вам нужно попить и поесть");
+            } else if (nume < 17 && numw > 22) {
+                alert("Вам нужно перекусить");
+            } else if (numw < 22 && nume > 17) {
+                alert("Вам нужно попить");
+            } else if (numw < 22 && nume < 17) {
+                alert("Вам нужно попить и поесть");
+            }
+        } else {
+            alert("Для работы требуется 2 уровень");       
         }
-    } else {
-        alert("Для работы требуется 2 уровень");       
-    }
 }
 // работа промоутера
 
 // работа грузчика
 function gr0() {
-    // определяем какой у нас уровень
-    var lvl = doc.getElementById("LVL").innerHTML;
-    LVL = Number.parseInt(lvl);
-    //  определяем какой у нас уровень
+    if (numlvl >= 3) {
+        if (nume >= 20 && WET >= 30) {
+            numl += 3;
 
-    // определяем наши очки опыта
-    var lvl1 = doc.getElementById("L").innerHTML;
-    LVL1 = Number.parseInt(lvl1);
-    //  определяем наши очки опыта
+            numm += 100;
+            nume -= 20;
+            numw -= 30;
+            onnum += 3;
 
-    // определяем сколько надо для повышения уровня
-    var op = doc.getElementById("OL").innerHTML;
-    OP = Number.parseInt(op);
-    // определяем сколько надо для повышения уровня
+            var e = doc.getElementById("E");
+            e.innerHTML = nume;
+            var w = doc.getElementById("W");
+            w.innerHTML = numw;
+            var m = doc.getElementById("M");
+            m.innerHTML = numm;
+            var l = doc.getElementById("L");
+            l.innerHTML = numl;
 
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
+            if (onnum >= nnum) {
+                NAVUP();
+            } else { }
+            if (numl >= numop) {
+                LVLUP();
+            } else { }
 
-    // определяем значение жажды как число
-    var WET_id = doc.getElementById("W").innerHTML;
-    WET = Number.parseInt(WET_id);
-    // определяем значение жажды как число
-
-    // определяем значение сытости как число
-    var EAT_id = doc.getElementById("E").innerHTML;
-    EAT = Number.parseInt(EAT_id);
-    // определяем значение сытости как число
-    if (LVL >= 3) {      
-        if (EAT >= 20 && WET >= 30) {
-            // определяем опыт как число
-            var lvl = doc.getElementById("L").innerHTML;
-            LVL1 = Number.parseInt(lvl);
-            // определяем опыт как число
-            var lvl1 = doc.getElementById("L");
-
-            LVL1 += 3;
-
-            lvl1.innerHTML = LVL1;
-
-        MON += 100;
-        EAT -= 20;
-        WET -= 30;
-        onnum += 3;
-
-        var MON_id1 = doc.getElementById("M");
-        var EAT_id1 = doc.getElementById("E");
-        var WET_id1 = doc.getElementById("W");
-
-        MON_id1.innerHTML = MON;
-        EAT_id1.innerHTML = EAT;
-        WET_id1.innerHTML = WET;
-
-        if (onnum >= nnum) {
-            NAVUP();
-        } else { }
-        if (LVL1 >= OP) {
-            LVLUP();
-        } else { }
-
-        } else if (EAT < 20 && WET > 30) {
-            alert("Вам нужно перекусить");
-        } else if (WET < 30 && EAT > 20) {
-            alert("Вам нужно попить");
-        } else if (WET < 30 && EAT < 20) {
-            alert("Вам нужно попить и поесть");
+            } else if (nume < 20 && numw > 30) {
+                alert("Вам нужно перекусить");
+            } else if (numw < 30 && nume > 20) {
+                alert("Вам нужно попить");
+            } else if (numw < 30 && nume < 20) {
+                alert("Вам нужно попить и поесть");
+            }
+        } else {
+            alert("Для работы требуется 3 уровень");
         }
-    } else {
-        alert("Для работы требуется 3 уровень");
-    }
     
 }
 // работа пгрузчика
 
 // работа официанта
 function of0() {
-    // определяем какой у нас уровень
-    var lvl = doc.getElementById("LVL").innerHTML;
-    LVL = Number.parseInt(lvl);
-    //  определяем какой у нас уровень
+    if (numlvl >= 4) {
+        if (nume >= 22 && numw >= 32) {
+            numl += 4;
 
-    // определяем наши очки опыта
-    var lvl1 = doc.getElementById("L").innerHTML;
-    LVL1 = Number.parseInt(lvl1);
-    //  определяем наши очки опыта
+            numm += 130;
+            nume -= 22;
+            numw -= 32;
+            onnum += 4;
 
-    // определяем сколько надо для повышения уровня
-    var op = doc.getElementById("OL").innerHTML;
-    OP = Number.parseInt(op);
-    // определяем сколько надо для повышения уровня
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    // определяем значение жажды как число
-    var WET_id = doc.getElementById("W").innerHTML;
-    WET = Number.parseInt(WET_id);
-    // определяем значение жажды как число
-
-    // определяем значение сытости как число
-    var EAT_id = doc.getElementById("E").innerHTML;
-    EAT = Number.parseInt(EAT_id);
-    // определяем значение сытости как число
-    if (LVL >= 4) {     
-        if (EAT >= 22 && WET >= 32) {        
-            // определяем опыт как число
-            var lvl = doc.getElementById("L").innerHTML;
-            LVL1 = Number.parseInt(lvl);
-            // определяем опыт как число
-            var lvl1 = doc.getElementById("L");
-
-            LVL1 += 4;
-
-            lvl1.innerHTML = LVL1;
-
-        MON += 130;
-        EAT -= 22;
-        WET -= 32;
-        onnum += 4;
-
-        var MON_id1 = doc.getElementById("M");
-        var EAT_id1 = doc.getElementById("E");
-        var WET_id1 = doc.getElementById("W");
-
-        MON_id1.innerHTML = MON;
-        EAT_id1.innerHTML = EAT;
-        WET_id1.innerHTML = WET;
+            var e = doc.getElementById("E");
+            e.innerHTML = nume;
+            var w = doc.getElementById("W");
+            w.innerHTML = numw;
+            var m = doc.getElementById("M");
+            m.innerHTML = numm;
+            var l = doc.getElementById("L");
+            l.innerHTML = numl;
         
-        if (onnum >= nnum) {
-            NAVUP();
-        } else { }
-        if (LVL1 >= OP) {
-            LVLUP();
-        } else { }
+            if (onnum >= nnum) {
+                NAVUP();
+            } else { }
+            if (numl >= numop) {
+                LVLUP();
+            } else { }
 
-        } else if (EAT < 22 && WET > 32) {
-            alert("Вам нужно перекусить");
-        } else if (WET < 32 && EAT > 22) {
-            alert("Вам нужно попить");
-        } else if (WET < 32 && EAT < 22) {
-            alert("Вам нужно попить и поесть");
+            } else if (nume < 22 && numw > 32) {
+                alert("Вам нужно перекусить");
+            } else if (numw < 32 && nume > 22) {
+                alert("Вам нужно попить");
+            } else if (numw < 32 && nume < 22) {
+                alert("Вам нужно попить и поесть");
+            }
+        } else {
+            alert("Для работы требуется 4 уровень");
         }
-    } else {
-        alert("Для работы требуется 4 уровень");
-    }
     
 }
 // работа официанта
 
 //работа водителя на стройке
 function drivedtr0() {
-    // определяем какой у нас уровень
-    var lvl = doc.getElementById("LVL").innerHTML;
-    LVL = Number.parseInt(lvl);
-    //  определяем какой у нас уровень
+    if (numlvl >= 5 && nrnum >= 1) {
+        if (nume >= 40 && numw >= 40 && numc >= 20) {
+            numl += 6;
 
-    // определяем наши очки опыта
-    var lvl1 = doc.getElementById("L").innerHTML;
-    LVL1 = Number.parseInt(lvl1);
-    //  определяем наши очки опыта
-
-    // определяем сколько надо для повышения уровня
-    var op = doc.getElementById("OL").innerHTML;
-    OP = Number.parseInt(op);
-    // определяем сколько надо для повышения уровня
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    // определяем значение концентрации как число
-    var CONc_id = doc.getElementById("C").innerHTML;
-    CONc = Number.parseInt(CONc_id);
-    // определяем значение концентрации как число
-
-    // определяем значение жажды как число
-    var WET_id = doc.getElementById("W").innerHTML;
-    WET = Number.parseInt(WET_id);
-    // определяем значение жажды как число
-
-    // определяем значение сытости как число
-    var EAT_id = doc.getElementById("E").innerHTML;
-    EAT = Number.parseInt(EAT_id);
-    // определяем значение сытости как число
-    if (LVL >= 5 && nrnum>= 1) {
-        if (EAT >= 40 && WET >= 40 && CONc >= 20) {
-            // определяем опыт как число
-            var lvl = doc.getElementById("L").innerHTML;
-            LVL1 = Number.parseInt(lvl);
-            // определяем опыт как число
-            var lvl1 = doc.getElementById("L");
-
-            LVL1 += 6;
-
-            lvl1.innerHTML = LVL1;
-
-            MON += 250;
-            EAT -= 40;
-            WET -= 40;
-            CONc -= 20;
+            numm += 250;
+            nume -= 40;
+            numw -= 40;
+            numc -= 20;
             onnum += 6;
 
-            var MON_id1 = doc.getElementById("M");
-            var EAT_id1 = doc.getElementById("E");
-            var WET_id1 = doc.getElementById("W");
-            var CONc_id1 = doc.getElementById("C");
-
-            MON_id1.innerHTML = MON;
-            EAT_id1.innerHTML = EAT;
-            WET_id1.innerHTML = WET;
-            CONc_id1.innerHTML = CONc;
+            var c = doc.getElementById("C");
+            c.innerHTML = numc;
+            var e = doc.getElementById("E");
+            e.innerHTML = nume;
+            var w = doc.getElementById("W");
+            w.innerHTML = numw;
+            var m = doc.getElementById("M");
+            m.innerHTML = numm;
+            var l = doc.getElementById("L");
+            l.innerHTML = numl;
 
             if (onnum >= nnum) {
                 NAVUP();
             } else { }
-            if (LVL1 >= OP) {
+            if (numl >= numop) {
                 LVLUP();
             } else { }
 
-        } else if (WET > 40 && EAT > 40 && CONc < 20) {
+        } else if (numw > 40 && nume > 40 && numc < 20) {
             alert("Вам нужно отдохнуть");
-        } else if (EAT < 40 && WET > 40 && CONc > 20) {
+        } else if (nume < 40 && numw > 40 && numc > 20) {
             alert("Вам нужно перекусить");
-        } else if (WET < 40 && EAT > 40 && CONc > 20) {
+        } else if (numw < 40 && nume > 40 && numc > 20) {
             alert("Вам нужно попить");
-        } else if (WET < 40 && EAT < 40 && CONc > 20) {
+        } else if (numw < 40 && nume < 40 && numc > 20) {
             alert("Вам нужно попить и поесть");
-        } else if (WET < 40 && EAT > 40 && CONc < 20) {
+        } else if (numw < 40 && nume > 40 && numc < 20) {
             alert("Вам нужно попить и отдохнуть");
-        } else if (WET > 40 && EAT < 40 && CONc < 20) {
+        } else if (numw > 40 && nume < 40 && numc < 20) {
             alert("Вам нужно отдохнуть и поесть");
-        } else if (WET < 40 && EAT < 40 && CONc < 20) {
+        } else if (numw < 40 && nume < 40 && numc < 20) {
             alert("Вам нужно попить, поесть и отдохнуть");
         }
-    } else if (LVL < 5 && nrnum >= 1) {
+    } else if (numlvl < 5 && nrnum >= 1) {
         alert("Для работы требуется 5 уровень");
-    } else if (LVL < 5 && nrnum < 1) {
+    } else if (numlvl < 5 && nrnum < 1) {
         alert("Для работы требуется 5 уровень и 1 навык работ");
-    } else if (LVL >= 5 && nrnum < 1) {
+    } else if (numlvl >= 5 && nrnum < 1) {
         alert("Для работы требуется 1 навык работ");
     }
 }
@@ -3487,95 +3321,54 @@ function drivedtr0() {
 
 // работа строителя
 function strodtr0() {
-    // определяем какой у нас уровень
-    var lvl = doc.getElementById("LVL").innerHTML;
-    LVL = Number.parseInt(lvl);
-    //  определяем какой у нас уровень
+    if (numlvl >= 6 && nrnum >= 2) {
+        if (nume >= 45 && numw >= 45 && numc >= 25) {
+            numl += 7;
 
-    // определяем наши очки опыта
-    var lvl1 = doc.getElementById("L").innerHTML;
-    LVL1 = Number.parseInt(lvl1);
-    //  определяем наши очки опыта
-
-    // определяем сколько надо для повышения уровня
-    var op = doc.getElementById("OL").innerHTML;
-    OP = Number.parseInt(op);
-    // определяем сколько надо для повышения уровня
-
-    // определяем значение денег как число
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-    // определяем значение денег как число
-
-    // определяем значение концентрации как число
-    var CONc_id = doc.getElementById("C").innerHTML;
-    CONc = Number.parseInt(CONc_id);
-    // определяем значение концентрации как число
-
-    // определяем значение жажды как число
-    var WET_id = doc.getElementById("W").innerHTML;
-    WET = Number.parseInt(WET_id);
-    // определяем значение жажды как число
-
-    // определяем значение сытости как число
-    var EAT_id = doc.getElementById("E").innerHTML;
-    EAT = Number.parseInt(EAT_id);
-    // определяем значение сытости как число
-    if (LVL >= 6 && nrnum >= 2) {
-        if (EAT >= 45 && WET >= 45 && CONc >= 25) {
-            // определяем опыт как число
-            var lvl = doc.getElementById("L").innerHTML;
-            LVL1 = Number.parseInt(lvl);
-            // определяем опыт как число
-            var lvl1 = doc.getElementById("L");
-
-            LVL1 += 7;
-
-            lvl1.innerHTML = LVL1;
-
-            MON += 300;
-            EAT -= 45;
-            WET -= 45;
-            CONc -= 25;
+            numm += 300;
+            nume -= 45;
+            numw -= 45;
+            numc -= 25;
             onnum += 7;
 
-            var MON_id1 = doc.getElementById("M");
-            var EAT_id1 = doc.getElementById("E");
-            var WET_id1 = doc.getElementById("W");
-            var CONc_id1 = doc.getElementById("C");
-
-            MON_id1.innerHTML = MON;
-            EAT_id1.innerHTML = EAT;
-            WET_id1.innerHTML = WET;
-            CONc_id1.innerHTML = CONc;
+            var c = doc.getElementById("C");
+            c.innerHTML = numc;
+            var e = doc.getElementById("E");
+            e.innerHTML = nume;
+            var w = doc.getElementById("W");
+            w.innerHTML = numw;
+            var m = doc.getElementById("M");
+            m.innerHTML = numm;
+            var l = doc.getElementById("L");
+            l.innerHTML = numl;
 
             if (onnum >= nnum) {
                 NAVUP();
             } else { }
-            if (LVL1 >= OP) {
+            if (numl >= numop) {
                 LVLUP();
             } else { }
 
-        } else if (WET > 45 && EAT > 45 && CONc < 25) {
+        } else if (numw > 45 && nume > 45 && numc < 25) {
             alert("Вам нужно отдохнуть");
-        } else if (EAT < 45 && WET > 45 && CONc > 25) {
+        } else if (nume < 45 && numw > 45 && numc > 25) {
             alert("Вам нужно перекусить");
-        } else if (WET < 45 && EAT > 45 && CONc > 25) {
+        } else if (numw < 45 && nume > 45 && numc > 25) {
             alert("Вам нужно попить");
-        } else if (WET < 45 && EAT < 45 && CONc > 25) {
+        } else if (numw < 45 && nume < 45 && numc > 25) {
             alert("Вам нужно попить и поесть");
-        } else if (WET < 45 && EAT > 45 && CONc < 25) {
+        } else if (numw < 45 && nume > 45 && numc < 25) {
             alert("Вам нужно попить и отдохнуть");
-        } else if (WET > 45 && EAT < 45 && CONc < 25) {
+        } else if (numw > 45 && nume < 45 && numc < 25) {
             alert("Вам нужно отдохнуть и поесть");
-        } else if (WET < 45 && EAT < 45 && CONc < 25) {
+        } else if (numw < 45 && nume < 45 && numc < 25) {
             alert("Вам нужно попить, поесть и отдохнуть");
         }
-    } else if (LVL < 6 && nrnum >= 2) {
+    } else if (numlvl < 6 && nrnum >= 2) {
         alert("Для работы требуется 6 уровень");
-    } else if (LVL < 6 && nrnum < 2) {
+    } else if (numlvl < 6 && nrnum < 2) {
         alert("Для работы требуется 6 уровень и 2 навык работ");
-    } else if (LVL >= 6 && nrnum < 2) {
+    } else if (numlvl >= 6 && nrnum < 2) {
         alert("Для работы требуется 2 навык работ");
     }
 }
@@ -3585,90 +3378,78 @@ function strodtr0() {
 
 // отдых парк
 function PACK0() {
-    var conc_id = doc.getElementById("C").innerHTML;
-    var conc = Number.parseInt(conc_id);
-
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-
-    if (MON >= 10 && conc < 100) {
+    if (numm >= 10 && numc < 100) {
         var conc_id1 = doc.getElementById("C");
         var MON_id1 = doc.getElementById("M");
 
-        conc += 10;
-        MON -= 10;
-        if (conc < 100) {
-            conc_id1.innerHTML = conc;
-            MON_id1.innerHTML = MON;
-        } else if (conc >= 100) {
-            conc = 100;
-            conc_id1.innerHTML = conc;
-            MON_id1.innerHTML = MON;
+        numc += 10;
+        numm -= 10;
+        if (numc < 100) {
+            conc_id1.innerHTML = numc;
+            MON_id1.innerHTML = numm;
+        } else if (numc >= 100) {
+            numc = 100;
+            conc_id1.innerHTML = numc;
+            MON_id1.innerHTML = numm;
         }
-    } else if (MON >= 10 && conc == 100) {
+    } else if (numm >= 10 && numc == 100) {
         alert("Вы бодры");
-    } else if (MON < 10 && conc < 100) {
+    } else if (numm < 10 && numc < 100) {
         alert("У вас недостаточно денег");
+    } else if (numm <= 10 && numc == 100) {
+        alert("Вы бодры");
     }
 }
 // отдых парк
 
 // отдых кино
 function KINO0() {
-    var conc_id = doc.getElementById("C").innerHTML;
-    var conc = Number.parseInt(conc_id);
-
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-
-    if (MON >= 20 && conc < 100) {
+    if (numm >= 20 && numc < 100) {
         var conc_id1 = doc.getElementById("C");
         var MON_id1 = doc.getElementById("M");
 
-        conc += 20;
-        MON -= 20;
-        if (conc < 100) {
-            conc_id1.innerHTML = conc;
-            MON_id1.innerHTML = MON;
-        } else if (conc >= 100) {
-            conc = 100;
-            conc_id1.innerHTML = conc;
-            MON_id1.innerHTML = MON;
+        numc += 20;
+        numm -= 20;
+        if (numc < 100) {
+            conc_id1.innerHTML = numc;
+            MON_id1.innerHTML = numm;
+        } else if (numc >= 100) {
+            numc = 100;
+            conc_id1.innerHTML = numc;
+            MON_id1.innerHTML = numm;
         }
-    } else if (MON >= 20 && conc == 100) {
+    } else if (numm >= 20 && numc == 100) {
         alert("Вы бодры");
-    } else if (MON < 20 && conc < 100) {
+    } else if (numm < 20 && numc < 100) {
         alert("У вас недостаточно денег");
+    } else if (numm <= 20 && numc == 100) {
+        alert("Вы бодры");
     }
 }
 // отдых кино
 
 // отдых игровойклуб
 function GAME0() {
-    var conc_id = doc.getElementById("C").innerHTML;
-    var conc = Number.parseInt(conc_id);
-
-    var MON_id = doc.getElementById("M").innerHTML;
-    MON = Number.parseInt(MON_id);
-
-    if (MON >= 40 && conc < 100) {
+    if (numm >= 40 && numc < 100) {
         var conc_id1 = doc.getElementById("C");
         var MON_id1 = doc.getElementById("M");
 
-        conc += 40;
-        MON -= 40;
-        if (conc < 100) {
-            conc_id1.innerHTML = conc;
-            MON_id1.innerHTML = MON;
-        } else if (conc >= 100) {
-            conc = 100;
-            conc_id1.innerHTML = conc;
-            MON_id1.innerHTML = MON;
+        numc += 40;
+        numm -= 40;
+        if (numc < 100) {
+            conc_id1.innerHTML = numc;
+            MON_id1.innerHTML = numm;
+        } else if (numc >= 100) {
+            numc = 100;
+            conc_id1.innerHTML = numc;
+            MON_id1.innerHTML = numm;
         }
-    } else if (MON >= 40 && conc == 100) {
+    } else if (numm >= 40 && numc == 100) {
         alert("Вы бодры");
-    } else if (MON < 40 && conc < 100) {
+    } else if (numm < 40 && numc < 100) {
         alert("У вас недостаточно денег");
+    } else if (numm <= 40 && numc == 100) {
+        alert("Вы бодры");
     }
 }
 // отдых игровойклуб
@@ -3715,36 +3496,21 @@ function audiowet() {
 
 function save0() {
     var name = doc.getElementById("name").innerHTML;
-    var namenum = Number.parseInt(name);
     localStorage.setItem("Savename", name);
 
-    var conc = doc.getElementById("C").innerHTML;
-    var concnum = Number.parseInt(conc);
-    localStorage.setItem("Saveconc", conc);
+    localStorage.setItem("nume", nume);
 
-    var eat = doc.getElementById("E").innerHTML;
-    var eatnum = Number.parseInt(eat);
-    localStorage.setItem("Saveeat", eat);
+    localStorage.setItem("numw", numw);
 
-    var wet = doc.getElementById("W").innerHTML;
-    var wetnum = Number.parseInt(wet);
-    localStorage.setItem("Savewet", wet);
+    localStorage.setItem("numm", numm);
 
-    var mon = doc.getElementById("M").innerHTML;
-    var monnum = Number.parseInt(mon);
-    localStorage.setItem("Savemon", mon);
+    localStorage.setItem("numc", numc);
 
-    var LVL = doc.getElementById("LVL").innerHTML;
-    var LVLnum = Number.parseInt(LVL);
-    localStorage.setItem("SaveLVL" ,LVL);
+    localStorage.setItem("numop", numop);
 
-    var L = doc.getElementById("L").innerHTML;
-    var Lnum = Number.parseInt(L);
-    localStorage.setItem("SaveL", L);
+    localStorage.setItem("numlvl", numlvl);
 
-    var OL = doc.getElementById("OL").innerHTML;
-    var OLnum = Number.parseInt(OL);
-    localStorage.setItem("SaveOL", OL);
+    localStorage.setItem("numl", numl);
 
     localStorage.setItem("onnum", onnum);
 
@@ -3758,54 +3524,36 @@ function save0() {
 }
 
 function load0() {
-    var name = doc.getElementById("name").innerHTML;
-    var namenum = Number.parseInt(name);
-    var namenonum = doc.getElementById("name");
-    namenum = localStorage.getItem("Savename");
-    namenonum.innerHTML = namenum
-    
-    var conc = doc.getElementById("C").innerHTML;
-    var concnum = Number.parseInt(conc);
-    var concnonum = doc.getElementById("C");
-    concnum = localStorage.getItem("Saveconc");
-    concnonum.innerHTML = concnum;
+    var namenum1 = localStorage.getItem("Savename");
+    namenum = namenum1;
 
-    var eat = doc.getElementById("E").innerHTML;
-    var eatnum = Number.parseInt(eat);
-    var eatnonum = doc.getElementById("E");
-    eatnum = localStorage.getItem("Saveeat");
-    eatnonum.innerHTML = eatnum;
+    var e1 = localStorage.getItem("nume");
+    var e = Number.parseInt(e1);
+    nume = e;
 
-    var wet = doc.getElementById("W").innerHTML;
-    var wetnum = Number.parseInt(wet);
-    var wetnonum = doc.getElementById("W");
-    wetnum = localStorage.getItem("Savewet");
-    wetnonum.innerHTML = wetnum;
+    var w1 = localStorage.getItem("numw");
+    var w = Number.parseInt(w1);
+    numw = w;
 
-    var mon = doc.getElementById("M").innerHTML;
-    var monnum = Number.parseInt(mon);
-    var monnonum = doc.getElementById("M");
-    monnum = localStorage.getItem("Savemon");
-    monnonum.innerHTML = monnum;
+    var c1 = localStorage.getItem("numc");
+    var c = Number.parseInt(c1);
+    numc = c;
 
-    var LVL = doc.getElementById("LVL").innerHTML;
-    var LVLnum = Number.parseInt(LVL);
-    var LVLnonum = doc.getElementById("LVL");
-    LVLnum = localStorage.getItem("SaveLVL");
-    LVLnonum.innerHTML = LVLnum;
+    var m1 = localStorage.getItem("numm");
+    var m = Number.parseInt(m1);
+    numm = m;
 
-    var L = doc.getElementById("L").innerHTML;
-    var Lnum = Number.parseInt(L);
-    var Lnonum = doc.getElementById("L");
-    Lnum = localStorage.getItem("SaveL");
-    Lnonum.innerHTML = Lnum;
+    var l1 = localStorage.getItem("numl");
+    var l = Number.parseInt(l1);
+    numl = l;
 
-    var OL = doc.getElementById("OL").innerHTML;
-    var OLnum = Number.parseInt(OL);
-    var OLnonum = doc.getElementById("OL");
-    OLnum = localStorage.getItem("SaveOL");
-    OLnonum.innerHTML = OLnum;
+    var lvl1 = localStorage.getItem("numlvl");
+    var lvl = Number.parseInt(lvl1);
+    numlvl = lvl;
 
+    var op1 = localStorage.getItem("numop");
+    var op = Number.parseInt(op1);
+    numop = op;
 
     var on1 = localStorage.getItem("onnum");
     var on = Number.parseInt(on1);
@@ -3828,27 +3576,27 @@ function load0() {
 
 function LVLUP() {
     // обнуляем счетчик нашего уровня
-    LVL1 = 0;
+    numl = 0;
 
     var leavel = doc.getElementById("L");
 
-    leavel.innerHTML = LVL1;
+    leavel.innerHTML = numl;
     // обнуляем счетчик нашего уровня
 
     // прибавляем 50 к нужному значению опыта
-    OP += 50;
+    numop += 50;
 
     var OPT = doc.getElementById("OL");
 
-    OPT.innerHTML = OP;
+    OPT.innerHTML = numop;
     // прибавляем 50 к нужному значению опыта
 
     // прибавляем к уровню 1
     var L = doc.getElementById("LVL");
 
-    LVL += 1;
+    numlvl += 1;
 
-    L.innerHTML = LVL;
+    L.innerHTML = numlvl;
 
     // прибавляем к уровню 1
     var audio = new Audio();
@@ -3872,57 +3620,70 @@ function NAVUP() {
 }
 
 function marpal01() {
-    var mon = doc.getElementById("M").innerHTML;
-    var monnum = Number.parseInt(mon);
     var mon1 = doc.getElementById("M");
-
-    if (monnum >= 500) {
-        monnum -= 500;
-        mon1.innerHTML = monnum;
-        mest = "Палатка";
-    } else {
-        alert("Недостаточно денег");
+    if (mest == "Палатка") {
+        alert("У вас уже имеется палатка");
+    } else if (mest == mest) {
+        if (numm >= 500) {
+            numm -= 500;
+            mon1.innerHTML = numm;
+            mest = "Палатка";
+        } else {
+            alert("Недостаточно денег");
+        }
     }
+
 }
 
 function marsar01() {
-    var mon = doc.getElementById("M").innerHTML;
-    var monnum = Number.parseInt(mon);
     var mon1 = doc.getElementById("M");
-
-    if (monnum >= 2500) {
-        monnum -= 2500;
-        mon1.innerHTML = monnum;
-        mest = "Сарай";
-    } else {
-        alert("Недостаточно денег");
+    if (mest == "Сарай") {        
+        alert("У вас уже имеется сарай");
+    } else if (mest == mest) {
+        if (numm >= 2500) {
+            numm -= 2500;
+            mon1.innerHTML = numm;
+            mest = "Сарай";
+        } else {
+            alert("Недостаточно денег");
+        }
     }
+
 }
 
 function marskate01() {
-    var mon = doc.getElementById("M").innerHTML;
-    var monnum = Number.parseInt(mon);
     var mon1 = doc.getElementById("M");
+    if (car == "Скейт") {
+        alert("У вас уже есть скейт");
+    } else if (car == car) {
+        if (numm >= 150) {
+            numm -= 150;
+            mon1.innerHTML = numm;
+            car = "Скейт";
 
-    if (monnum >= 150) {
-        monnum -= 150;
-        mon1.innerHTML = monnum;
-        car = "Скейт";
-    } else {
-        alert("Недостаточно денег");
+        } else {
+            alert("Недостаточно денег");
+        }
     }
+   
 }
 
 function marvelo01() {
-    var mon = doc.getElementById("M").innerHTML;
-    var monnum = Number.parseInt(mon);
     var mon1 = doc.getElementById("M");
-
-    if (monnum >= 800) {
-        monnum -= 800;
-        mon1.innerHTML = monnum;
-        car = "Велосипед";
-    } else {
-        alert("Недостаточно денег");
+    
+    if (car == "Велосипед") {
+        alert("У вас уже есть велосипед");
+    } else if (car == car) {
+        if (numm >= 800) {
+            numm -= 800;
+            mon1.innerHTML = numm;
+            car = "Велосипед";
+        } else {
+            alert("Недостаточно денег");
+        }
     }
+}
+
+function oby() {
+    alert("Обучение. \n Это симулятор жизни, вам нужно зарабатывать деньги, а так же \n восполнять свои показатели. У вас имеются 4 показателя: \n 1. Концентрация, тратится когда вы работате на работе. \n Восполнить ее можно в меню отдыха. \n 2. Еда тратится как при работе, так и при подработке, купить еду \n можно в магазине. \n 3. Жажда так же как и еда тратится при любой работе и подработки, а восполнить потребность можно в магазине. \n 4. Деньги, на них вы можете покупить еду, недвижимость, транспорт. \n В начале игры вам доступна только подработка. Ваша задача \n добиться высот, заработать много денег, купить все самое \n лучшее и просто наслаждаться простым геймплеем. \n P.S. Игра еще не полностью доделана, так что в ней не \n силишком много контента. \n Все свои предложение кидайте на почту yarygin.02@mail.ru")
 }
