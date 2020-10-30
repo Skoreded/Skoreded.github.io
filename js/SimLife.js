@@ -2940,7 +2940,7 @@ function SOUP0() {
             audioeat();
         } else if (nume >= 100) {
             nume = 100;
-            EAT_id1.innerHTML = EATnume
+            EAT_id1.innerHTML = nume
             MON_id1.innerHTML = numm;
 
             audioeat();
@@ -2972,7 +2972,7 @@ function weit0() {
             audiowet();
         } else if (numw >= 100) {
             numw = 100;
-            WET_id1.innerHTML = WETnumw
+            WET_id1.innerHTML = numw
             MON_id1.innerHTML = numm;
 
             audiowet()
